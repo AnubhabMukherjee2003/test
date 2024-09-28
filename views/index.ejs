@@ -8,69 +8,63 @@
   <link href="/styles/style.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-100 text-gray-900 w-screen h-screen">
 
-  <nav class="bg-black text-white flex justify-between ">
-    <p class="ml-64 text-4xl my-auto w-2">Anubhab</p>
-    <ul class="flex px-36 py-4 space-x-11 justify-around w-100">
-        <li>home</li>
-        <li>home</li>
-        <li>home</li>
-        <li>home</li>
+  <nav class="bg-black text-white flex flex-wrap justify-between w-full p-4">
+    <p class="text-4xl w-full md:w-1/2 text-center py-2">Anubhab</p>
+    <ul class="flex text-2xl w-full md:w-1/2 px-0 md:px-36 py-4 space-x-4 md:space-x-8 justify-around">
+      <a href="#themes"><li>themes</li></a>
+      <a href="#contact"><li>contact</li></a>
     </ul>
   </nav>
-  <main class="text-center bg-gray-400 my-auto text-2xl">
-    i am workin on a project for building a production level website for company "nightingale"
+
+  <main class="w-full text-center bg-gray-400 my-auto text-xl md:text-2xl p-4">
+    I am working on a project for building a production level website for company "Nightingale"
     <br>
-    these are some website-themes i made in past days to try some themes
+    These are some website themes I made in the past few days to try some designs.
     <br>
-    please see explore this themes and give me feedback
+    Please explore these themes and give me feedback.
   </main>
 
-  </main>
-  <div class="flex flex-wrap justify-around">
-
-    <div class="m-8">
-      <iframe class="border-4 border-green-600   cursor-pointer" width="560" height="315" src="/test1"></iframe>
-      <button class="w-full h-8 bg-green-600" onclick="window.location.href='/test1'">click here to see</button>
+  <div id="themes" class="w-full flex flex-wrap justify-around">
+    <div class="m-4 md:m-16 w-full  md:w-1/4">
+      <iframe class="border-4 border-green-600 w-full  h-44 md:h-56 cursor-pointer" src="/test1"></iframe>
+      <button class="w-full h-8 bg-green-600" onclick="window.location.href='/test1'">Click here to see</button>
     </div>
 
-
-    <div class="m-8" >
-      <iframe class="border-4 border-green-500   cursor-pointer" width="560" height="315" src="/test2"></iframe>
-      <button class="w-full h-8 bg-green-500" onclick="window.location.href='/test2'">click here to see</button>
+    <div class="m-4 md:m-16 w-full  md:w-1/4">
+      <iframe class="border-4 border-green-500 w-full  h-44 md:h-56 cursor-pointer" src="/test2"></iframe>
+      <button class="w-full h-8 bg-green-500" onclick="window.location.href='/test2'">Click here to see</button>
     </div>
 
-
-    <div class="m-8" >
-      <iframe class="border-4 border-green-400   cursor-pointer" width="560" height="315" src="/test3"></iframe>
-      <button class="w-full h-8 bg-green-400" onclick="window.location.href='/test3'">click here to see</button>
+    <div class="m-4 md:m-16 w-full md:w-1/4">
+      <iframe class="border-4 border-green-400 w-full  h-44 md:h-56 cursor-pointer" src="/test3"></iframe>
+      <button class="w-full h-8 bg-green-400" onclick="window.location.href='/test3'">Click here to see</button>
     </div>
 
-
-    <div class="m-8" >
-      <iframe class="border-4 border-green-300   cursor-pointer" width="560" height="315" src="/test4"></iframe>
-      <button class="w-full h-8 bg-green-300" onclick="window.location.href='/test4'">click here to see</button>
+    <div class="m-4 md:m-16 w-full  md:w-1/4">
+      <iframe class="border-4 border-green-300 w-full   h-44 md:h-56 cursor-pointer" src="/test4"></iframe>
+      <button class="w-full h-8 bg-green-300" onclick="window.location.href='/test4'">Click here to see</button>
     </div>
 
-
-    <div class="m-8" >
-      <iframe class="border-4 border-green-200   cursor-pointer" width="560" height="315" src="/test5"></iframe>
-      <button class="w-full h-8 bg-green-200" onclick="window.location.href='/test5'">click here to see</button>
+    <div class="m-4 md:m-16 w-full md:w-1/4">
+      <iframe class="border-4 border-green-200 w-full  h-44 md:h-56 cursor-pointer" src="/test5"></iframe>
+      <button class="w-full h-8 bg-green-200" onclick="window.location.href='/test5'">Click here to see</button>
     </div>
 
-
-    <div class="m-8" >
-      <iframe class="border-4 border-green-100   cursor-pointer" width="560" height="315" src="/test6"></iframe>
-      <button class="w-full h-8 bg-green-100" onclick="window.location.href='/test6'">click here to see</button>
+    <div class="m-4 md:m-16 w-full md:w-1/4">
+      <iframe class="border-4 border-green-100 w-full  h-44 md:h-56 cursor-pointer" src="/test6"></iframe>
+      <button class="w-full h-8 bg-green-100" onclick="window.location.href='/test6'">Click here to see</button>
     </div>
-
-
   </div>
-  <footer id="contact" class="bg-black text-white flex justify-between p-4">
-    <p class="ml-64 text-4xl my-auto w-2">Mukherjee</p>
-    <p class="mr-64 text-lg my-auto">© 2024 AnubhabProduction. All rights reserved.</p>
+
+  <footer id="contact" class="bg-black text-white flex flex-wrap justify-around p-4">
+    <p class="text-4xl my-auto text-center md:text-left md:w-auto w-full">Mukherjee</p>
+    <p class="w-full text-center my-auto md:w-auto">+91 9123608110</p>
+    <p class="w-full text-center my-auto md:w-auto">antucruse621@gmail.com</p>
+    <p class="text-lg my-auto text-center md:text-right w-full md:w-auto">© 2024 AnubhabProduction. All rights reserved.</p>
   </footer>
+
 </body>
 
 </html>
