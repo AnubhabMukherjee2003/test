@@ -1,331 +1,218 @@
-<!doctype html>
-<html x-data="{colorMode: localStorage.getItem('colorMode') || localStorage.setItem('colorMode', 'light')}" x-init="$watch('colorMode', val => localStorage.setItem('colorMode', val))" x-bind:class="{'dark': colorMode === 'dark' || (colorMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}" class="scroll-smooth h-full overflow-y-auto">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- The Play CDN is designed for development purposes only, and is not the best choice for production. -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-
-  <link id="heading-font" rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" media="all" />
-  <style>
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "DM Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    }
-  </style>
-
-<script>
-    window.tailwind.config = {
-      "darkMode": "class",
-      "theme": {
-        "fontFamily": {
-          "heading": ["DM Sans", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "\"Segoe UI\"", "Roboto", "\"Helvetica Neue\"", "Arial", "\"Noto Sans\"", "sans-serif", "\"Apple Color Emoji\"", "\"Segoe UI Emoji\"", "\"Segoe UI Symbol\"", "\"Noto Color Emoji\""],
-          "body": ["DM Sans", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "\"Segoe UI\"", "Roboto", "\"Helvetica Neue\"", "Arial", "\"Noto Sans\"", "sans-serif", "\"Apple Color Emoji\"", "\"Segoe UI Emoji\"", "\"Segoe UI Symbol\"", "\"Noto Color Emoji\""]
-        },
-        "extend": {
-          "borderRadius": {
-            "global": "5px"
-          },
-          "colors": {
-            "primary": {
-              "50": "#f8f5ff",
-              "100": "#eee6fe",
-              "200": "#ddcefd",
-              "300": "#c1a6fc",
-              "400": "#844df9",
-              "500": "#4d07e4",
-              "600": "#3705a3",
-              "700": "#280477",
-              "800": "#170245",
-              "900": "#0c0123",
-              "950": "#070114",
-              "DEFAULT": "#570df8"
-            },
-            "secondary": {
-              "50": "#fff5fd",
-              "100": "#ffe6f9",
-              "200": "#fecdf3",
-              "300": "#fea4e9",
-              "400": "#fd49d3",
-              "500": "#e802b3",
-              "600": "#a70280",
-              "700": "#79015d",
-              "800": "#470136",
-              "900": "#23001b",
-              "950": "#140010",
-              "DEFAULT": "#f002b8"
-            }
-          }
-        }
-      },
-      "plugins": [window.tailwind.plugin.withOptions(({
-        prefix = "ui"
-      } = {}) => {
-        return ({
-          addVariant
-        }) => {
-          for (let state of ["open", "checked", "selected", "active", "disabled"]) {
-            addVariant(`${prefix}-${state}`, [
-              `&[data-headlessui-state~="${state}"]`,
-              `:where([data-headlessui-state~="${state}"]) &`,
-            ]);
-
-            addVariant(`${prefix}-not-${state}`, [
-              `&[data-headlessui-state]:not([data-headlessui-state~="${state}"])`,
-              `:where([data-headlessui-state]:not([data-headlessui-state~="${state}"])) &:not([data-headlessui-state])`,
-            ]);
-          }
-        };
-      }), ]
-    };
-  </script>
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-
+  <title>themes-anubhab</title>
+  <link href="/styles/style.css" rel="stylesheet">
 </head>
+<!-- this is slim code convert it t html code -->
+<body>
+  <header class="text-gray-700 body-font border-b border-gray-200 bg-gray-200">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col items-center md:flex-row">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="javascript:void(0);">
+        <img class="size-10 rounded-md" src="https://assets.codepen.io/1535263/portal-logo.png" alt="Logo">
+        <span class="ml-3 text-xl">Builders</span>
+      </a>
+      <nav class="flex flex-wrap items-center text-base justify-center md:ml-auto">
+        <a class="mr-5 px-2 py-1 rounded hover:bg-red-600 hover:text-white" href="javascript:void(0);">First Link</a>
+        <a class="mr-5 px-2 py-1 rounded hover:bg-red-600 hover:text-white" href="javascript:void(0);">Second Link</a>
+        <a class="mr-5 px-2 py-1 rounded hover:bg-red-600 hover:text-white" href="javascript:void(0);">Third Link</a>
+        <a class="mr-5 px-2 py-1 rounded hover:bg-red-600 hover:text-white" href="javascript:void(0);">Fourth Link</a>
+      </nav>
+    </div>
+  </header>
 
-<body x-data="{'openDialogId': ''}" x-on:keydown.escape="openDialogId=''" class='font-body  h-full font-body antialiased text-[#000000] bg-[#fcfcfc] dark:text-[#ffffff] dark:bg-[#031022]'>
-  <div class="py-11">
-    <div class="text-center flex flex-col gap-y-3 px-2 sm:mx-auto sm:max-w-xl">
-      <p class="dark:text-gray-300">Get Started</p>
-      <h1 class="font-bold text-3xl text-slate-900 dark:text-gray-100 sm:text-4xl">Let&#x27;s show the world</h1>
-      <p class="text-base dark:text-gray-400 sm:text-lg">On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms.</p>
+  <section class="text-gray-700 body-font border-b">
+    <div class="container mx-auto flex px-5 py-16 flex-col items-center md:flex-row">
+      <div class="flex flex-col mb-10 items-center text-center lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0">
+        <h1 class="title-font text-3xl mb-2 font-black text-red-700 sm:text-4xl">At Work With You</h1>
+        <p class="text-xl mb-8 leading-relaxed">Builders Mutual provides insurance coverage and safety education exclusively to the construction industry. Its not just our specialty its all we do.</p>
+      </div>
+      <div class="flex flex-col items-center text-center lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img src="https://picsum.photos/300" alt="Random Picsum photo" class="object-cover object-center rounded">
+      </div>
     </div>
-    <div class="grid grid-cols-2 mt-5 gap-y-5 sm:gap-y-0 lg:mx-auto lg:max-w-4xl">
-      <div class="col-span-2 sm:col-span-1"><img class="w-full bg-gray-50" alt="No alt" src="https://picsum.photos/300" /></div>
-      <div class="col-span-2 px-3 pb-3 dark:border-slate-700 border-gray-50 sm:col-span-1 sm:flex sm:flex-col sm:justify-center sm:pl-7 sm:border-t lg:border-r">
-        <h1 class="font-semibold text-gray-700 tracking-tight text-xl dark:text-gray-200 dark:divide-undefined sm:mb-2 md:my-1">Transfer Money</h1>
-        <p class="text-base font-normal tracking-tight leading-relaxed dark:divide-undefined dark:text-gray-300">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,</p>
+  </section>
+     
+  <section class="text-gray-700 body-font border-b border-gray-200">
+    <div class="container px-5 py-10 mx-auto">
+      <div class="flex flex-col text-center w-full mb-10">
+        <h2 class="text-sm text-red-700 tracking-widest font-bold title-font mb-1">Builders Mutual</h2>
+        <h1 class="text-2xl font-medium title-font text-gray-900 sm:text-3xl">Discover What We Stand For</h1>
       </div>
-      <div class="col-span-2 px-3 pb-3 order-3 dark:border-slate-700 border-gray-50 sm:col-span-1 sm:flex sm:flex-col sm:justify-center sm:pl-7 sm:order-none sm:border-b lg:border-l">
-        <h1 class="font-semibold text-gray-700 tracking-tight text-xl dark:text-gray-200 dark:divide-undefined sm:mb-2 md:my-1">Credit Card Payment</h1>
-        <p class="text-base font-normal tracking-tight leading-relaxed dark:divide-undefined dark:text-gray-300">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident,</p>
+      <div class="flex flex-wrap -m-4">
+        <div class="p-4 md:w-1/3">
+          <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col group hover:bg-red-700 hover:text-white">
+            <div class="flex items-center mb-3">
+              <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-red-700 text-white flex-shrink-0 group-hover:bg-white">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 group-hover:stroke-red-700" viewBox="0 0 24 24">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <h2 class="text-lg title-font font-medium">Heading 01</h2>
+            </div>
+            <div class="flex-grow">
+              <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at odio ipsum. Donec sit amet tempus ipsum. Nullam eu sapien eget augue laoreet euismod nec at ipsum.</p>
+              <a href="javascript:void(0);" class="mt-3 text-red-700 inline-flex items-center group-hover:text-white">Learn More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 md:w-1/3">
+          <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col group hover:bg-red-700 hover:text-white">
+            <div class="flex items-center mb-3">
+              <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-red-700 text-white flex-shrink-0 group-hover:bg-white">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 group-hover:stroke-red-700" viewBox="0 0 24 24">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <h2 class="text-lg title-font font-medium">Heading 01</h2>
+            </div>
+            <div class="flex-grow">
+              <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at odio ipsum. Donec sit amet tempus ipsum. Nullam eu sapien eget augue laoreet euismod nec at ipsum.</p>
+              <a href="javascript:void(0);" class="mt-3 text-red-700 inline-flex items-center group-hover:text-white">Learn More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 md:w-1/3">
+          <div class="flex rounded-lg h-full bg-gray-100 p-8 flex-col group hover:bg-red-700 hover:text-white">
+            <div class="flex items-center mb-3">
+              <div class="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-red-700 text-white flex-shrink-0 group-hover:bg-white">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5 group-hover:stroke-red-700" viewBox="0 0 24 24">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <h2 class="text-lg title-font font-medium">Heading 01</h2>
+            </div>
+            <div class="flex-grow">
+              <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at odio ipsum. Donec sit amet tempus ipsum. Nullam eu sapien eget augue laoreet euismod nec at ipsum.</p>
+              <a href="javascript:void(0);" class="mt-3 text-red-700 inline-flex items-center group-hover:text-white">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Repeat the above block for other content with different text for Heading 02, 03, etc. -->
+
       </div>
-      <div class="col-span-2 order-2 sm:col-span-1 sm:order-none"><img class="w-full bg-gray-50" alt="No alt" src="https://picsum.photos/300" /></div>
     </div>
-  </div>
-  &nbsp;
-  <section class="py-10">
-    <div class="mx-auto max-w-7xl">
-      <div class="flex flex-wrap w-full px-4 pb-5">
-        <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-          <h1 class="text-3xl title-font mb-2 text-gray-900 font-bold dark:text-slate-100 sm:text-4xl">Dive into tasty treats!</h1>
-          <div class="h-1 rounded bg-primary w-14">
-            <div class="p-2"></div>
-          </div>
-        </div>
-        <p class="w-full text-lg leading-snug font-light font-body lg:w-1/2">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven&#x27;t heard of them.</p>
+  </section>
+
+  <section class="text-gray-700 body-font">
+    <div class="container px-5 py-10 mx-auto flex flex-wrap border-b">
+      <div class="w-full mb-10 rounded-lg overflow-hidden lg:w-1/3 lg:mb-0">
+        <img class="object-cover object-center h-full w-full" alt="" src="https://picsum.photos/200">
       </div>
-      <div class="flex flex-wrap">
-        <div class="p-4 md:w-1/2 xl:w-1/4">
-          <div class="bg-gray-50 dark:bg-gray-900"><a class="" href="#"><img class="h-40 rounded w-full object-cover object-center mb-2 xl:mb-0" alt="No alt" src="https://images.unsplash.com/photo-1635324944940-0c0a9c8f9bf1?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8M2QlMjBzcXVhcmV8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60" /></a>
-            <div class="p-6 rounded-lg dark:divide-undefined">
-              <h2 class="text-lg text-gray-900 title-font mb-0 font-heading font-semibold dark:divide-undefined dark:divide-undefined dark:text-gray-200">Ceviche de palmito</h2>
-              <h3 class="tracking-widest text-xs font-medium title-font text-primary mb-2">SUBTITLE</h3>
-              <p class="">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-4 md:w-1/2 xl:w-1/4">
-          <div class="bg-gray-50 dark:bg-gray-900"><img class="h-40 rounded w-full object-cover object-center mb-2 xl:mb-0" alt="No alt" src="https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60" />
-            <div class="p-6 rounded-lg dark:divide-undefined">
-              <h2 class="text-lg text-gray-900 title-font mb-0 font-semibold dark:text-gray-200 dark:divide-undefined">Chicken spaghetti</h2>
-              <h3 class="tracking-widest text-xs font-medium title-font text-primary mb-2">SUBTITLE</h3>
-              <p class="">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-4 md:w-1/2 xl:w-1/4">
-          <div class="bg-gray-50 dark:bg-gray-900"><img class="h-40 rounded w-full object-cover object-center mb-2 xl:mb-0" alt="No alt" src="https://images.unsplash.com/photo-1633783156075-a01661455344?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60" />
-            <div class="p-6 rounded-lg dark:divide-undefined">
-              <h2 class="text-lg text-gray-900 title-font font-semibold mb-0 dark:text-gray-200">Green Salad</h2>
-              <h3 class="tracking-widest text-xs font-medium title-font text-primary mb-2">SUBTITLE</h3>
-              <p class="">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-4 md:w-1/2 xl:w-1/4">
-          <div class="bg-gray-50 dark:bg-gray-900"><img class="h-40 rounded w-full object-cover object-center mb-2 xl:mb-0" alt="No alt" src="https://images.unsplash.com/photo-1631700611307-37dbcb89ef7e?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60" />
-            <div class="p-6 rounded-lg dark:divide-undefined">
-              <h2 class="text-lg text-gray-900 title-font font-semibold mb-0 dark:text-gray-200">Grilled Barbecue</h2>
-              <h3 class="tracking-widest text-xs title-font text-primary mb-2 font-medium">SUBTITLE</h3>
-              <p class="text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-            </div>
+      <div class="flex flex-col flex-wrap text-center lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left">
+        <div class="flex flex-col mb-10 items-center pb-4 lg:items-start">
+          <div class="flex-grow">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">Heading 04</h2>
+            <p class="leading-relaxed text-base">
+              Donec leo purus, volutpat a mi quis, vehicula cursus arcu. Sed eu luctus risus. Mauris turpis ex, feugiat in ante vel, ornare lobortis purus. Donec et orci ac odio fringilla laoreet et nec odio. Proin ac dui at magna pretium viverra ut elementum arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi ut ante eu nulla facilisis tempor sit amet eu elit. Donec ultrices pellentesque sagittis. Integer ut nisi vitae est euismod ullamcorper. Ut aliquet mauris sagittis dolor efficitur, vitae pulvinar lectus lacinia. Aenean libero nulla, euismod in tempus sit amet, porttitor et turpis. Nulla convallis, felis ac vestibulum scelerisque, risus orci vehicula dui, sit amet vestibulum turpis urna at dolor.
+            </p>
+            <a class="mt-3 text-blue-500 inline-flex items-center" href="javascript:void(0);">Learn More</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <div class="">
-    <div class="text-center px-3 py-16 max-w-7xl mx-auto">
-      <h1 class="font-black tracking-tight text-slate-900 text-3xl dark:text-slate-100 sm:text-4xl">We work as a Team!</h1>
-      <p class="mt-3 text-lg max-w-lg mx-auto">Start growing in half the time with an all-in-one website builder - no more long hours spent on the boring stuff!</p>
-      <div class="grid gap-2 mt-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        <div class="text-center"><img class="rounded-full w-60 mx-auto mb-4 bg-blue-100" alt="No alt" src="https://images.pexels.com/photos/9968247/pexels-photo-9968247.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" />
-          <h1 class="text-2xl font-bold dark:text-slate-200 text-slate-800">John Doe</h1>
-          <p class="">CEO  &amp; CTO</p>
-        </div>
-        <div class="text-center"><img class="rounded-full w-60 mx-auto mb-4 bg-blue-100" alt="No alt" src="https://images.pexels.com/photos/3211476/pexels-photo-3211476.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" />
-          <h1 class="text-2xl font-bold dark:text-slate-200 text-slate-800">Doe John</h1>
-          <p class="">Marketing Director</p>
-        </div>
-        <div class="text-center"><img class="rounded-full w-60 mx-auto mb-4 bg-blue-100" alt="No alt" src="https://images.pexels.com/photos/1520760/pexels-photo-1520760.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" />
-          <h1 class="text-2xl font-bold dark:text-slate-200 text-slate-800">Lita Hayden</h1>
-          <p class="">Graphic Designer</p>
-        </div>
-        <div class="text-center"><img class="rounded-full w-60 mx-auto mb-4 bg-blue-100" alt="No alt" src="https://images.pexels.com/photos/966067/pexels-photo-966067.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" />
-          <h1 class="text-2xl font-bold dark:text-slate-200 text-slate-800">William Sendrick</h1>
-          <p class="">Developer</p>
-        </div>
+        
+  
+  <section class="text-gray-700 body-font  bg-gray-200">
+    <div class="container px-5 py-10 mx-auto">
+      <div class="flex flex-col text-center w-full mb-10">
+        <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 sm:text-3xl">Our Team</h1>
+        <p class="mx-auto leading-relaxed text-base text-sm">“The strength of the team is each individual member. The strength of each member is the team.” – Phil Jackson</p>
       </div>
-    </div>
-  </div>
-  <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-    <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-      <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight sm:text-4xl md:mx-auto">I could either watch it happen or be a part of it</h2>
-      <p class="text-base md:text-lg"> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae. </p>
-    </div>
-    <div class="max-w-lg space-y-3 sm:mx-auto lg:max-w-xl">
-      <div class="flex items-center p-2 transition-colors duration-200 border shadow group hover:bg-primary-500 hover:border-primary-500 rounded-global">
-        <div class="mr-2"><span class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8"><svg class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8" class="w-6 h-6 transition-colors duration-200 text-deep-purple-accent-400 group-hover:text-white sm:w-8 sm:h-8" stroke="currentColor" viewBox="0 0 52 52">
-              <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-            </svg></span></div><span class="transition-colors duration-200 group-hover:text-white">Change the world by being yourself.</span>
-      </div>
-      <div class="flex items-center p-2 transition-colors duration-200 border shadow group hover:border-primary-500 hover:bg-primary-500 rounded-global">
-        <div class="mr-2"><span class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8"><svg class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8" class="w-6 h-6 transition-colors duration-200 text-deep-purple-accent-400 group-hover:text-white sm:w-8 sm:h-8" stroke="currentColor" viewBox="0 0 52 52">
-              <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-            </svg></span></div><span class="transition-colors duration-200 group-hover:text-white">Die with memories, not dreams.</span>
-      </div>
-      <div class="flex items-center p-2 transition-colors duration-200 border shadow group hover:border-primary-500 hover:bg-primary-500 rounded-global">
-        <div class="mr-2"><span class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8"><svg class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8" class="w-6 h-6 transition-colors duration-200 text-deep-purple-accent-400 group-hover:text-white sm:w-8 sm:h-8" stroke="currentColor" viewBox="0 0 52 52">
-              <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-            </svg></span></div><span class="transition-colors duration-200 group-hover:text-white">What we think, we become.</span>
-      </div>
-      <div class="flex items-center p-2 transition-colors duration-200 border shadow group hover:border-primary-500 hover:bg-primary-500 rounded-global">
-        <div class="mr-2"><span class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8"><svg class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8" class="w-6 h-6 transition-colors duration-200 text-deep-purple-accent-400 group-hover:text-white sm:w-8 sm:h-8" stroke="currentColor" viewBox="0 0 52 52">
-              <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-            </svg></span></div><span class="transition-colors duration-200 group-hover:text-white">Be so good they can’t ignore you.</span>
-      </div>
-      <div class="flex items-center p-2 transition-colors duration-200 border shadow group hover:border-primary-500 hover:bg-primary-500 rounded-global">
-        <div class="mr-2"><span class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8"><svg class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8" class="w-6 h-6 transition-colors duration-200 text-deep-purple-accent-400 group-hover:text-white sm:w-8 sm:h-8" stroke="currentColor" viewBox="0 0 52 52">
-              <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-            </svg></span></div><span class="transition-colors duration-200 group-hover:text-white">Simplicity is the ultimate sophistication.</span>
-      </div>
-      <div class="flex items-center p-2 transition-colors duration-200 border shadow group hover:border-primary-500 hover:bg-primary-500 rounded-global">
-        <div class="mr-2"><span class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8"><svg class="w-6 h-6 transition-colors duration-200 group-hover:text-white text-primary-500 sm:w-8 sm:h-8" class="w-6 h-6 transition-colors duration-200 text-deep-purple-accent-400 group-hover:text-white sm:w-8 sm:h-8" stroke="currentColor" viewBox="0 0 52 52">
-              <polygon stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" points="29 13 14 29 25 29 23 39 38 23 27 23"></polygon>
-            </svg></span></div><span class="transition-colors duration-200 group-hover:text-white">Yesterday you said tomorrow. Just do it today.</span>
-      </div>
-    </div>
-  </div>
-  <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-    <div class="mx-auto sm:text-center lg:max-w-2xl">
-      <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-        <div class="">
-          <p class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider uppercase rounded-full bg-secondary text-white"> New Store</p>
-        </div>
-        <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl md:mx-auto">Street Food is an amazing</h2>
-        <p class="text-base md:text-lg"> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque rem aperiam, eaque ipsa quae. </p>
-      </div>
-      <div class="mb-4 lg:mb-6"><img class="object-cover w-full h-56 rounded sm:h-64 md:h-80 lg:h-96 lg:object-contain" alt="No alt" src="https://images.unsplash.com/photo-1501139083538-0139583c060f?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80" /></div>
-      <p class="max-w-xl mb-4 text-base sm:mx-auto"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ullamco laboris aliquip ex ea. </p><a class="inline-flex items-center font-semibold transition-colors duration-200 text-secondary hover:text-secondary-800" href="#"><span class=""> Learn more </span><span class="inline-block w-3 ml-2"><svg class="inline-block w-3 ml-2" class="inline-block w-3 ml-2" fill="currentColor" viewBox="0 0 12 12">
-            <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z"></path>
-          </svg></span></a>
-    </div>
-  </div>
-  <div class="py-6 sm:py-8 lg:py-12">
-    <div class="max-w-screen-2xl px-4 md:px-8 mx-auto">
-      <div class="mb-10 md:mb-16">
-        <h2 class="font-bold text-center mb-4 text-3xl text-slate-900 dark:text-slate-100 md:mb-6 lg:text-4xl">Our competitive advantage</h2>
-        <p class="max-w-screen-md md:text-lg text-center mx-auto">This is a section of some simple filler text, also known as placeholder text. It shares some characteristics of a real written text but is random or otherwise generated.</p>
-      </div>
-      <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-12 xl:gap-16">
-        <div class="flex flex-col items-center">
-          <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg></span></div>
-          <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Growth</h3>
-          <p class="text-center mb-2">Filler text is dummy text which has no meaning however looks very similar to real text.</p><a class="font-bold transition duration-100 text-primary hover:text-primary-700 active:text-primary-700" href="#">More</a>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg></span></div>
-          <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Security</h3>
-          <p class="text-center mb-2">Filler text is dummy text which has no meaning however looks very similar to real text.</p><a class="font-bold transition duration-100 text-primary hover:text-primary-700 active:text-primary-700" href="#">More</a>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
-              </svg></span></div>
-          <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Cloud</h3>
-          <p class="text-center mb-2">Filler text is dummy text which has no meaning however looks very similar to real text.</p><a class="font-bold transition duration-100 text-primary hover:text-primary-700 active:text-primary-700" href="#">More</a>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg></span></div>
-          <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Speed</h3>
-          <p class="text-center mb-2">Filler text is dummy text which has no meaning however looks very similar to real text.</p><a class="font-bold transition duration-100 text-primary hover:text-primary-700 active:text-primary-700" href="#">More</a>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg></span></div>
-          <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Support</h3>
-          <p class="text-center mb-2">Filler text is dummy text which has no meaning however looks very similar to real text.</p><a class="font-bold transition duration-100 text-primary hover:text-primary-700 active:text-primary-700" href="#">More</a>
-        </div>
-        <div class="flex flex-col items-center">
-          <div class="w-12 md:w-14 h-12 md:h-14 flex justify-center items-center text-indigo-500 mb-2 sm:mb-4"><span class="w-full h-full text-primary"><svg class="w-full h-full text-primary" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-              </svg></span></div>
-          <h3 class="text-lg md:text-xl font-semibold text-center mb-2">Dark Mode</h3>
-          <p class="text-center mb-2">Filler text is dummy text which has no meaning however looks very similar to real text.</p><a class="font-bold transition duration-100 text-primary hover:text-primary-700 active:text-primary-700" href="#">More</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="">
-    <div class="mx-auto px-4 max-w-7xl">
-      <div class="grid -mx-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="px-4">
-          <div class="py-6">
-            <h3 class="text-primary-500 text-4xl font-bold lg:mb-4">50+</h3>
-            <h5 class="text-black text-lg font-semibold dark:text-white">Reusable Components</h5>
-            <p class="text-sm">orem ipsum dolor sit amet conse ctetur adipiscing elit</p>
+      <div class="flex flex-wrap -m-2">
+        <!-- Team members profile block -->
+        <div class="p-2 w-full lg:w-1/3 md:w-1/2">
+          <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-white hover:bg-red-600 hover:text-white">
+            <img src="https://assets.codepen.io/1535263/profile-tmarkart-23.jpg" alt="Tom Markart" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 border-2 border-white">
+            <div class="flex-grow">
+              <h2 class="title-font font-medium">Tom Markart</h2>
+              <p>UI/UX Developer</p>
+            </div>
           </div>
         </div>
-        <div class="px-4">
-          <div class="py-6">
-            <h3 class="text-primary-500 text-4xl font-bold lg:mb-4">54%</h3>
-            <h5 class="text-black text-lg font-semibold dark:text-white">Fully Customizable</h5>
-            <p class="text-sm">orem ipsum dolor sit amet conse ctetur adip</p>
+        <!-- Repeat the above block for other team members -->
+        <!-- Team members profile block -->
+        <div class="p-2 w-full lg:w-1/3 md:w-1/2">
+          <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-white hover:bg-red-600 hover:text-white">
+            <img src="https://assets.codepen.io/1535263/profile-tmarkart-23.jpg" alt="Tom Markart" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 border-2 border-white">
+            <div class="flex-grow">
+              <h2 class="title-font font-medium">Tom Markart</h2>
+              <p>UI/UX Developer</p>
+            </div>
           </div>
         </div>
-        <div class="px-4">
-          <div class="py-6">
-            <h3 class="text-primary-500 text-4xl font-bold lg:mb-4">24</h3>
-            <h5 class="text-black text-lg font-semibold dark:text-white">Dark Mode Support</h5>
-            <p class="text-sm">orem ipsum dolor sit amet conse ctetur adipiscite</p>
+        <!-- Repeat the above block for other team members -->
+         <!-- Team members profile block -->
+        <div class="p-2 w-full lg:w-1/3 md:w-1/2">
+          <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-white hover:bg-red-600 hover:text-white">
+            <img src="https://assets.codepen.io/1535263/profile-tmarkart-23.jpg" alt="Tom Markart" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 border-2 border-white">
+            <div class="flex-grow">
+              <h2 class="title-font font-medium">Tom Markart</h2>
+              <p>UI/UX Developer</p>
+            </div>
           </div>
         </div>
-        <div class="px-4">
-          <div class="py-6">
-            <h3 class="text-primary-500 text-4xl font-bold lg:mb-4">100%</h3>
-            <h5 class="text-black text-lg font-semibold dark:text-white">Export Code</h5>
-            <p class="text-sm">Lorem ipsum dolor sit amet conse aute irure dol</p>
+        <!-- Repeat the above block for other team members -->
+         <!-- Team members profile block -->
+        <div class="p-2 w-full lg:w-1/3 md:w-1/2">
+          <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-white hover:bg-red-600 hover:text-white">
+            <img src="https://assets.codepen.io/1535263/profile-tmarkart-23.jpg" alt="Tom Markart" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 border-2 border-white">
+            <div class="flex-grow">
+              <h2 class="title-font font-medium">Tom Markart</h2>
+              <p>UI/UX Developer</p>
+            </div>
           </div>
         </div>
+        <!-- Repeat the above block for other team members -->
+         <!-- Team members profile block -->
+        <div class="p-2 w-full lg:w-1/3 md:w-1/2">
+          <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-white hover:bg-red-600 hover:text-white">
+            <img src="https://assets.codepen.io/1535263/profile-tmarkart-23.jpg" alt="Tom Markart" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 border-2 border-white">
+            <div class="flex-grow">
+              <h2 class="title-font font-medium">Tom Markart</h2>
+              <p>UI/UX Developer</p>
+            </div>
+          </div>
+        </div>
+        <!-- Repeat the above block for other team members -->
+         <!-- Team members profile block -->
+        <div class="p-2 w-full lg:w-1/3 md:w-1/2">
+          <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg bg-white hover:bg-red-600 hover:text-white">
+            <img src="https://assets.codepen.io/1535263/profile-tmarkart-23.jpg" alt="Tom Markart" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4 border-2 border-white">
+            <div class="flex-grow">
+              <h2 class="title-font font-medium">Tom Markart</h2>
+              <p>UI/UX Developer</p>
+            </div>
+          </div>
+        </div>
+        <!-- Repeat the above block for other team members -->
       </div>
     </div>
-  </div>
+  </section>
+  <section class="text-gray-700 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="w-full mx-auto text-center xl:w-1/2 lg:w-3/4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="inline-block w-8 h-8 text-gray-400 mb-8" viewBox="0 0 975.036 975.036">
+          <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50z"></path>
+        </svg>
+        <p class="leading-relaxed text-xl">The problem with quotes found on the internet is that they are often not true.</p>
+        <span class="inline-block h-1 w-10 rounded bg-red-700 mt-8 mb-6"></span>
+        <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">ABRAHAM LINCOLN</h2>
+        <p class="text-gray-500">16th President of the US</p>
+      </div>
+    </div>
+  </section>
 
-
+  <footer class="text-gray-700 body-font bg-gray-200">
+    <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+      <p class="text-gray-500 text-sm text-center sm:text-left">© 2024 Builders Mutual Insurance Company</p>
+      <span class="text-center text-gray-500 text-sm sm:ml-auto sm:mt-0 mt-2 sm:w-auto w-full sm:text-left">Local: 919-845-1976 | Toll-Free: 800-809-4859</span>
+    </div>
+  </footer>
 </body>
-
-</html>
+</html>   
