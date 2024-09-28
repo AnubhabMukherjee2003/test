@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+  --purple: #722ED1;
+  --lighter-purple: #F9F0FF;
+  --light-purple: #DEC9FA;
+  --dark-purple: #160637;
+  --gray-purple: #8989A2;
+  --white: #FFFFFF;
+  --black: #000000;
+  --light-green: #F6FFED;
+  --light-red: #FFF1F0;
+  --light-blue: #E6F7FF;
+  --lighter-blue: #FBFCFF;
+  --light-pink-purple: #F9F0FF
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+button,
+input {
+  font-family: 'Metropolis', sans-serif;
+  ;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  color: var(--dark-purple);
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 2.25rem;
+  line-height: 1.167;
+}
+
+h3 {
+  font-size: 1.3125rem;
+  line-height: 1.28;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray-purple);
+}
+
+small {
+  font-size: 0.75rem;
+  color: var(--dark-purple);
+  margin: 0.65rem 0;
+}
+
+.rounded {
+  border-radius: 20px;
+}
+
+.tag {
+  padding: .75rem 1rem;
+  background-color: var(--lighter-purple);
+  color: var(--purple);
+  width: fit-content;
+}
+
+.button {
+  color: var(--black);
+  background-color: var(--white);
+  padding: .75rem 1rem;
+  border: 1px solid var(--gray-purple);
+}
+
+.button-primary {
+  color: var(--white);
+  background-color: var(--purple);
+  border: 1px solid var(--purple);
+  border-radius: 4px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, .16);
+}
+
+.button-primary-outlined {
+  background-color: var(--white);
+  border: 1px solid var(--purple);
+  color: var(--purple);
+}
+
+.background-success {
+  background-color: var(--light-green);
+}
+
+.background-danger {
+  background-color: var(--light-red);
+}
+
+.background-info {
+  background-color: var(--light-blue);
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-columns {
+  flex-direction: column;
+}
+
+.input {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--gray-purple);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+/* ------------------ NAVBAR ------------------ */
+.nav {
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: var(--white);
+}
+
+.nav.scroll {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  background-color: var(--white);
+  width: 100%;
+  top: 77px;
+  left: 0;
+  padding: 2rem;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  transform: translateY(-123%);
+  transition: .3s ease-in-out;
+  z-index: 0;
+}
+
+.nav ul.active {
+  transform: translateY(0%);
+}
+
+.nav ul li {
+  margin: 1rem 0;
+  color: var(--dark-purple);
+}
+
+.hamburger {
+  width: 45px;
+  height: 45px;
+}
+
+/* ------------------ MAIN ------------------ */
+.main {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  flex-direction: column;
+  background: url("https://i.ibb.co/tL7ss4w/background-1.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.main__desc {
+  order: 1;
+  text-align: center;
+}
+
+.main__image {
+  order: 0;
+  width: 100%;
+  height: auto;
+}
+
+.main p.tag {
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.main h1 {
+  margin-bottom: 1.5rem;
+}
+
+.main p {
+  margin-bottom: 1rem;
+}
+
+/* ------------------ EXCELLENCE ------------------ */
+.excellence {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.excellence .tag {
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.excellence h2 {
+  margin-bottom: 1.25rem;
+  max-width: 475px;
+  text-align: center;
+}
+
+.excellence__desc {
+  max-width: 525px;
+  text-align: center;
+}
+
+.excellence__items {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.excellence__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+}
+
+.excellence__icon {
+  margin-bottom: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+}
+
+.excellence__item h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.excellence__item p {
+  text-align: center;
+}
+
+/* ------------------ PRODUCT TEAM & ENGINEERING TEAM ------------------ */
+.product-team,
+.engineering-team {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-team__image,
+.engineering-team__image {
+  width: 100%;
+  height: auto;
+}
+
+.product-team__desc .tag,
+.engineering-team__desc .tag {
+  margin: auto;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.product-team__desc h2,
+.engineering-team__desc h2 {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.product-team__desc p,
+.engineering-team__desc p {
+  text-align: center;
+}
+
+/* ------------------ TESTIMONY ------------------ */
+.testimony {
+  background: url("https://i.ibb.co/fMmdLnk/background-2.png");
+  padding: 5rem 2rem;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.testimony h3 {
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1rem;
+  max-width: 650px;
+  margin: auto;
+}
+
+.testimony__image {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.testimony__name {
+  text-align: center;
+  font-weight: 700;
+  color: var(--dark-purple);
+}
+
+.testimony hr {
+  color: var(--light-purple);
+  margin: 3.5rem 0;
+}
+
+.testimony__companies {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.testimony__company {
+  margin: 0.5rem
+}
+
+/* ------------------ SIGN UP ------------------ */
+.sign-up {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sign-up__text {
+  max-width: 500px;
+}
+
+.sign-up h2 {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+.sign-up__desc {
+  text-align: center;
+  margin: auto;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.sign-up__desc::before {
+  content: "";
+  display: block;
+  width: 30%;
+  height: 1.5px;
+  background-color: var(--gray-purple);
+  left: 0;
+  top: 50%;
+  position: absolute;
+}
+
+.sign-up__desc::after {
+  content: "";
+  display: block;
+  width: 30%;
+  height: 1.5px;
+  background-color: var(--gray-purple);
+  right: 0;
+  top: 50%;
+  position: absolute;
+}
+
+.sign-up__companies {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.sign-up__company {
+  margin: 1rem
+}
+
+.sign-up hr {
+  color: var(--gray-purple);
+  margin: 1.75rem 0;
+}
+
+.sign-up__form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 4px;
+  border: 1px solid var(--light-pink-purple);
+  box-shadow: 0px 10px 20px rgba(116, 116, 116, .16);
+  position: relative;
+  background-color: var(--white);
+  max-width: 350px;
+}
+
+.sign-up__form::before {
+  content: '';
+  display: block;
+  width: calc(100% + 4rem);
+  height: 100%;
+  background-color: var(--light-purple);
+  position: absolute;
+  top: 10%;
+  left: -2rem;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+.sign-up__form h3,
+.sign-up__form p,
+.sign-up__form a {
+  text-align: center;
+}
+
+.sign-up__form h3 {
+  margin-bottom: 2rem;
+}
+
+/* ------------------ FOOTER ------------------ */
+.footer {
+  background-color: var(--lighter-blue);
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  margin-top: 6rem;
+}
+
+.footer p {
+  font-weight: 700;
+  color: var(--dark-purple);
+  margin-bottom: 0.65rem;
+}
+
+.footer>div {
+  flex: .15;
+  padding: 1rem;
+}
+
+.newsletter__form {
+  box-shadow: 0px 5px 9px rgba(0, 0, 0, .05);
+}
+
+.newsletter input {
+  background-color: var(--white);
+  padding: 1rem;
+  border: none;
+}
+
+.newsletter button {
+  background-color: var(--white);
+  border: none;
+  padding: .6rem;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media screen and (min-width: 768px) {
+  .nav {
+    padding: 1rem 4rem;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .nav ul {
+    flex-direction: row;
+    position: static;
+    background-color: none;
+    transform: translate(0);
+    box-shadow: none;
+    padding: 0;
+    width: fit-content;
+    flex: 0.75;
+    justify-content: space-between;
+  }
+
+  .nav ul li {
+    margin: 0;
+  }
+
+  .main {
+    flex-direction: row;
+    padding: 4rem;
+  }
+
+  .main__desc {
+    order: 0;
+    text-align: left;
+  }
+
+  .main__image {
+    order: 1
+  }
+
+  .main p.tag {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  .excellence {
+    padding: 4rem;
+  }
+
+  .excellence__items {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+
+  .excellence__item {
+    align-items: flex-start;
+    flex: 0.2;
+  }
+
+  .excellence__item h3,
+  .excellence__item p {
+    text-align: left;
+  }
+
+  .product-team,
+  .engineering-team {
+    padding: 4rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .product-team__image {
+    margin-right: 2rem;
+    max-height: 436px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .engineering-team__image {
+    margin-left: 2rem;
+    width: 100%;
+    object-fit: contain;
+    order: 1;
+  }
+
+  .product-team__image,
+  .product-team__desc,
+  .engineering-team__image,
+  .engineering-team__desc {
+    flex: 0.4;
+  }
+
+  .engineering-team__desc {
+    order: 0;
+  }
+
+  .product-team__desc .tag,
+  .engineering-team__desc .tag {
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+
+  .product-team__desc h2,
+  .product-team__desc p,
+  .engineering-team__desc h2,
+  .engineering-team__desc p {
+    text-align: left;
+  }
+
+  .testimony {
+    padding: 6rem 4rem;
+  }
+
+  .sign-up {
+    padding: 4rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sign-up__text {
+    max-width: none;
+
+  }
+
+  .sign-up__text,
+  .sign-up__form {
+    flex: 0.45
+  }
+
+  .footer {
+    padding: 4rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .nav {
+    padding: 1rem 6rem;
+  }
+
+  .nav ul {
+    flex: 0.45;
+  }
+
+  .main {
+    padding: 6rem;
+  }
+
+  .excellence {
+    padding: 6rem;
+  }
+
+  .product-team,
+  .engineering-team {
+    padding: 6rem;
+  }
+
+  .testimony {
+    padding: 7rem 6rem;
+  }
+
+  .sign-up {
+    padding: 6rem;
+  }
+
+  .footer {
+    padding: 6rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .nav {
+    padding: 1rem 8rem;
+  }
+
+  .main {
+    padding: 8rem;
+  }
+
+  .excellence {
+    padding: 8rem;
+  }
+
+  .product-team,
+  .engineering-team {
+    padding: 8rem;
+  }
+
+  .testimony {
+    padding: 8rem;
+  }
+
+  .sign-up {
+    padding: 8rem;
+  }
+
+  .footer {
+    padding: 8rem;
+  }
+}
+    </style>
+</head>
+<body>
+    <nav class="nav flex items-center justify-between">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40"
+          viewBox="0 0 48 48">
+          <defs>
+            <clipPath id="clip-path">
+              <rect width="48" height="48" fill="none" />
+            </clipPath>
+          </defs>
+          <g id="Logo" clip-path="url(#clip-path)">
+            <g id="Logo-2" data-name="Logo" transform="translate(-1756.067 -378.462)">
+              <path id="Path_611" data-name="Path 611" d="M1756.072,478.465" transform="translate(-0.004 -72.574)"
+                fill="#0032d8" />
+              <path id="Path_612" data-name="Path 612" d="M1780.065,378.462v13.716l-12,6.857-12-6.858h0Z"
+                transform="translate(0 0)" fill="#431f5a" />
+              <path id="Path_613" data-name="Path 613" d="M1768.067,435.321l12,6.857v13.714h0l-12-6.857-12-6.857V428.463Z"
+                transform="translate(0 -36.287)" fill="#722ed1" />
+              <path id="Path_614" data-name="Path 614" d="M1854.67,485.32v13.713l-12-6.856h0V478.463Z"
+                transform="translate(-62.604 -72.572)" fill="#722ed1" />
+              <path id="Path_615" data-name="Path 615" d="M1842.669,378.462v0h0v13.714h0l12,6.856v0h0l12,6.856V392.177Z"
+                transform="translate(-62.604)" fill="#722ed1" />
+              <path id="Path_616" data-name="Path 616" d="M1866.668,428.463v13.716l-12,6.857-12-6.858,12-6.858Z"
+                transform="translate(-62.604 -36.287)" fill="#431f5a" />
+              <path id="Path_617" data-name="Path 617" d="M1854.67,485.32l-12,6.857h0V478.463Z"
+                transform="translate(-62.604 -72.572)" fill="#431f5a" />
+            </g>
+          </g>
+        </svg>
+        <div class="hamburger flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="30" height="30"
+            viewBox="0 0 24 24" stroke-width="2" stroke="#160637" fill="#160637" stroke-linecap="round"
+            stroke-linejoin="round">
+            <desc>Download more icon variants from https://tabler-icons.io/i/menu-2</desc>
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <line x1="4" y1="6" x2="20" y2="6"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="18" x2="20" y2="18"></line>
+          </svg>
+        </div>
+        <ul>
+          <li class="flex items-center">About <svg xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-chevron-down" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+              stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <desc>Download more icon variants from https://tabler-icons.io/i/chevron-down</desc>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg></li>
+          <li>Pricing</li>
+          <li>Contact Us</li>
+          <li>Login</li>
+          <li>
+            <button class="button button-primary-outlined rounded">Get Started</button>
+          </li>
+        </ul>
+      </nav>
+      <section class="main">
+        <div class="main__desc">
+          <p class="tag rounded">
+            <svg id="edit-brightness" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path id="Path_603" data-name="Path 603"
+                d="M13,6a.75.75,0,0,1-.75-.75,1.5,1.5,0,0,0-1.5-1.5.75.75,0,0,1,0-1.5,1.5,1.5,0,0,0,1.5-1.5.75.75,0,0,1,1.5,0,1.5,1.5,0,0,0,1.5,1.5.75.75,0,0,1,0,1.5,1.5,1.5,0,0,0-1.5,1.5A.75.75,0,0,1,13,6Z"
+                fill="#722ed1" />
+              <path id="Path_604" data-name="Path 604"
+                d="M6,16a1,1,0,0,1-1-1,4,4,0,0,0-4-4A1,1,0,1,1,1,9,4,4,0,0,0,5,5,1,1,0,0,1,7,5a4,4,0,0,0,4,4,1,1,0,0,1,0,2,4,4,0,0,0-4,4,1,1,0,0,1-1,1Z"
+                fill="#722ed1" />
+            </svg>
+            v3.1 released. <u>Learn more</u>
+          </p>
+          <h1>Your data with real-time analytics</h1>
+          <p>Harness the potential of Big Data Analytics & Cloud Services and become a data-driven organization with Needle
+            tail
+          </p>
+          <button class="button button-primary rounded">Start free trial</button>
+          <button class="button rounded">Learn more</button>
+        </div>
+        <img src="https://i.ibb.co/PCBph1p/cloud-computing.png" alt="cloud-computing" class="main__image">
+      </section>
+      <section class="excellence">
+        <p class="tag rounded">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25.776" height="17.184" viewBox="0 0 25.776 17.184">
+            <path id="Icon_awesome-eye" data-name="Icon awesome-eye"
+              d="M25.62,12.439A14.353,14.353,0,0,0,12.888,4.5,14.355,14.355,0,0,0,.156,12.439a1.448,1.448,0,0,0,0,1.306,14.353,14.353,0,0,0,12.732,7.939A14.355,14.355,0,0,0,25.62,13.745,1.448,1.448,0,0,0,25.62,12.439Zm-12.732,7.1a6.444,6.444,0,1,1,6.444-6.444A6.444,6.444,0,0,1,12.888,19.536Zm0-10.74a4.265,4.265,0,0,0-1.133.17,2.141,2.141,0,0,1-2.994,2.994A4.286,4.286,0,1,0,12.888,8.8Z"
+              transform="translate(0 -4.5)" fill="#722ed1" />
+          </svg>
+          Why Qubly
+        </p>
+        <h2>Get actionable insights from Big Data in 3 steps</h2>
+        <p class="excellence__desc">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+          invidunt ut labore et
+          dolore
+          magna aliquyam erat, sed diam voluptua.</p>
+        <div class="excellence__items">
+          <div class="excellence__item">
+            <div class="background-success excellence__icon flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16.437" viewBox="0 0 16 16.437">
+                <g id="timeline" transform="translate(-0.219)">
+                  <g id="Group_15" data-name="Group 15">
+                    <path id="Path_618" data-name="Path 618"
+                      d="M14.568,0H13.541V7.7H12V8.732h1.541v7.7h1.027V13.355h1.541V12.328H14.568V4.109h1.541V3.082H14.568Z"
+                      transform="translate(-5.836)" fill="#52c41a" />
+                    <rect id="Rectangle_370" data-name="Rectangle 370" width="5" height="5" rx="1"
+                      transform="translate(11.219 1.219)" fill="#52c41a" />
+                    <rect id="Rectangle_371" data-name="Rectangle 371" width="5" height="5" rx="1"
+                      transform="translate(11.219 10.219)" fill="#52c41a" />
+                    <rect id="Rectangle_372" data-name="Rectangle 372" width="5" height="6" rx="1"
+                      transform="translate(0.219 5.219)" fill="#52c41a" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <h3>Data<br>in real-time</h3>
+            <p>Collect data in real-time from multiple channels and move it into a data lake, in its original format.</p>
+          </div>
+          <div class="excellence__item">
+            <div class="background-danger excellence__icon flex items-center justify-center">
+              <svg id="newsletter-dev" xmlns="http://www.w3.org/2000/svg" width="16.092" height="16.092"
+                viewBox="0 0 16.092 16.092">
+                <g id="Group_19" data-name="Group 19">
+                  <path id="Path_628" data-name="Path 628"
+                    d="M4.111,7.973V1.006h9.052V7.973l2.907-1.615-1.9-1.115V.5a.5.5,0,0,0-.5-.5H3.608a.5.5,0,0,0-.5.5V5.241L1.188,6.35Z"
+                    transform="translate(-0.591)" fill="#f5222d" />
+                  <path id="Path_629" data-name="Path 629"
+                    d="M8.29,18.589a.5.5,0,0,1-.488,0L0,14.255v8.42a.5.5,0,0,0,.5.5H15.589a.5.5,0,0,0,.5-.5v-8.42Z"
+                    transform="translate(0 -7.087)" fill="#f5222d" />
+                  <path id="Path_630" data-name="Path 630"
+                    d="M11.011,10.025,9.147,8.161a.5.5,0,0,1,0-.711l1.864-1.864.711.711L10.214,7.806l1.509,1.509Z"
+                    transform="translate(-4.474 -2.777)" fill="#f5222d" />
+                  <path id="Path_631" data-name="Path 631"
+                    d="M18.3,10.025l-.711-.711,1.509-1.509L17.586,6.3l.711-.711L20.161,7.45a.5.5,0,0,1,0,.711Z"
+                    transform="translate(-8.743 -2.777)" fill="#f5222d" />
+                </g>
+              </svg>
+            </div>
+            <h3>Powerful<br>algorithms</h3>
+            <p>With the help of powerful algorithms, quality rules & techniques, obtain simplified & enriched data.</p>
+          </div>
+          <div class="excellence__item">
+            <div class="background-info excellence__icon flex items-center justify-center">
+              <svg id="chart-bar-33" xmlns="http://www.w3.org/2000/svg" width="17.32" height="17.32"
+                viewBox="0 0 17.32 17.32">
+                <g id="Group_18" data-name="Group 18">
+                  <path id="Path_624" data-name="Path 624"
+                    d="M15.789,17H12.541a.541.541,0,0,0-.541.541v7.036a.541.541,0,0,0,.541.541h3.248a.541.541,0,0,0,.541-.541V17.541A.541.541,0,0,0,15.789,17Z"
+                    transform="translate(-5.505 -7.799)" fill="#1890ff" />
+                  <path id="Path_625" data-name="Path 625"
+                    d="M3.789,23H.541A.541.541,0,0,0,0,23.541V27.33a.541.541,0,0,0,.541.541H3.789a.541.541,0,0,0,.541-.541V23.541A.541.541,0,0,0,3.789,23Z"
+                    transform="translate(0 -10.551)" fill="#1890ff" />
+                  <path id="Path_626" data-name="Path 626"
+                    d="M27.789,11H24.541a.541.541,0,0,0-.541.541V21.825a.541.541,0,0,0,.541.541h3.248a.541.541,0,0,0,.541-.541V11.541A.541.541,0,0,0,27.789,11Z"
+                    transform="translate(-11.01 -5.046)" fill="#1890ff" />
+                  <path id="Path_627" data-name="Path 627"
+                    d="M11.088,6.5a.54.54,0,0,0,.383-.159L15.96,1.848V4.33h1.083V.541A.541.541,0,0,0,16.5,0H12.712V1.083h2.482L11.088,5.189,8.765,2.865a.541.541,0,0,0-.765,0L5.293,5.571l.765.765L8.382,4.013l2.324,2.324A.54.54,0,0,0,11.088,6.5Z"
+                    transform="translate(-2.428)" fill="#1890ff" />
+                </g>
+              </svg>
+            </div>
+            <h3>Valuable business<br>insights</h3>
+            <p>Collect processed & cleansed data that is ready to be analyzed to gather valuable business insights.</p>
+          </div>
+        </div>
+      </section>
+      <section class="product-team">
+        <img src="https://i.ibb.co/RzksR0m/product-team.png" alt="product-team" class="product-team__image">
+        <div class="product-team__desc">
+          <p class="tag rounded">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24.012" viewBox="0 0 24 24.012">
+              <g id="Group_11" data-name="Group 11" transform="translate(0 0.012)">
+                <path id="Path_607" data-name="Path 607"
+                  d="M8,7.586V5.816a3,3,0,1,0-2,0V8a1,1,0,0,0,.293.707L9,11.414V23a1,1,0,0,0,2,0V11a1,1,0,0,0-.293-.707Z"
+                  fill="#722ed1" />
+                <path id="Path_608" data-name="Path 608"
+                  d="M4,16.586v-1.77a3,3,0,1,0-2,0V17a1,1,0,0,0,.293.707L5,20.414V23a1,1,0,0,0,2,0V20a1,1,0,0,0-.293-.707Z"
+                  fill="#722ed1" />
+                <path id="Path_609" data-name="Path 609"
+                  d="M18,8V5.816a3,3,0,1,0-2,0v1.77l-2.707,2.707A1,1,0,0,0,13,11V23a1,1,0,0,0,2,0V11.414l2.707-2.707A1,1,0,0,0,18,8Z"
+                  fill="#722ed1" />
+                <path id="Path_610" data-name="Path 610"
+                  d="M24,12a3,3,0,1,0-4,2.816v1.77l-2.707,2.707A1,1,0,0,0,17,20v3a1,1,0,0,0,2,0V20.414l2.707-2.707A1,1,0,0,0,22,17V14.816A3,3,0,0,0,24,12Z"
+                  fill="#722ed1" />
+              </g>
+            </svg>
+            For Product Teams
+          </p>
+          <h2>Launch with the best stack</h2>
+          <p>A centralized platform that integrates zillions of data sources using Big Data ELT (Extract, Load & Transform)
+            that
+            leaves no data behind</p>
+        </div>
+      </section>
+      <section class="engineering-team">
+        <img src="https://i.ibb.co/QjSTKVb/engineering-team.png" alt="engineering-team" class="engineering-team__image">
+        <div class="engineering-team__desc">
+          <p class="tag rounded">
+            <svg xmlns="http://www.w3.org/2000/svg" width="23.226" height="24" viewBox="0 0 23.226 24">
+              <g id="compass" transform="translate(-1)">
+                <g id="Group_28" data-name="Group 28" transform="translate(1)">
+                  <path id="Path_681" data-name="Path 681" d="M15.645,2.4V0H14.1V2.4a3.871,3.871,0,1,0,1.548,0Z"
+                    transform="translate(-3.258)" fill="#722ed1" />
+                  <path id="Path_682" data-name="Path 682"
+                    d="M20.8,19.773h1.881V18.225H20.021l-3.047-6.087a5.438,5.438,0,0,1-2.529,1.89l2.1,4.2H13.387V16.676H11.839v1.548H8.682l2.1-4.2a5.434,5.434,0,0,1-2.529-1.89L5.2,18.225H2.548v1.548H4.429L1,26.622a3.979,3.979,0,0,0,4.524-2.081l2.384-4.767h3.931v1.548h1.548V19.773h3.931L19.7,24.541a3.979,3.979,0,0,0,4.524,2.081Z"
+                    transform="translate(-1 -2.741)" fill="#722ed1" />
+                </g>
+              </g>
+            </svg>
+            For Engineering Teams
+          </p>
+          <h2>Data-driven pipelines in minutes</h2>
+          <p>Maintenance-free data pipelines with quick set-up and straight-forward deployments that are powered by a modern
+            &
+            scalable platform.</p>
+        </div>
+      </section>
+      <section class="testimony">
+        <h3>
+          "What I love about Qubly is the easy way we can collaborate even if there is a lot of people involved in the
+          process"
+        </h3>
+        <img src="https://i.ibb.co/88yV17F/CTO-Big-Spring.png" alt="CTO-Big-Spring" class="testimony__image">
+        <p class="testimony__name">Guillaume Cabane</p>
+        <p class="testimony__name">CTO @ BigSpring</p>
+        <hr>
+        <div class="testimony__companies">
+          <svg xmlns="http://www.w3.org/2000/svg" width="144.623" height="38.004" viewBox="0 0 144.623 38.004"
+            class="testimony__company">
+            <g id="Tonkean" transform="translate(-6398.67 -376.555)">
+              <path id="Path_671" data-name="Path 671"
+                d="M6824.562,429.019l-6.555,6.157,7.068,8.124c-1.751,0-3.268.03-4.782-.03-.249-.01-.515-.389-.718-.642-1.808-2.243-3.6-4.5-5.62-6.707v7.308h-3.7V422.484h3.632v12.179l.289.157c.478-.531.951-1.067,1.434-1.593,1.227-1.334,2.444-2.678,3.7-3.985a1.689,1.689,0,0,1,.994-.541c1.336-.062,2.677-.025,4.016-.025Z"
+                transform="translate(-328.612 -36.67)" fill="#8989a2" />
+              <path id="Path_672" data-name="Path 672"
+                d="M7046.417,465.856V451.283h3.5v1.957l.374.269a1.672,1.672,0,0,1,.174-.559,5.575,5.575,0,0,1,6.4-1.9,5.384,5.384,0,0,1,3.572,5.216c.037,3.152.009,6.305.009,9.589-1.119,0-2.154.046-3.178-.038-.211-.017-.541-.515-.547-.8-.046-2.184-.024-4.368-.027-6.553,0-.4-.006-.807-.029-1.209-.133-2.351-1.066-3.461-2.908-3.468a3.456,3.456,0,0,0-3.6,3.54c-.093,2.45-.084,4.906-.037,7.358.018.909-.21,1.281-1.167,1.186C7048.13,465.791,7047.293,465.856,7046.417,465.856Z"
+                transform="translate(-517.162 -59.206)" fill="#8989a2" />
+              <path id="Path_673" data-name="Path 673"
+                d="M6727.873,465.991H6724.3V451.483h3.446c.038.686.074,1.331.124,2.211a5.489,5.489,0,0,1,3.948-2.677c3.735-.435,6.359,1.794,6.452,5.57.071,2.888,0,5.779.026,8.668.005.615-.2.837-.815.812-.933-.038-1.868-.01-2.948-.01,0-.514.006-.936,0-1.358-.043-2.684-.05-5.369-.153-8.051a2.553,2.553,0,0,0-2.022-2.582,3.076,3.076,0,0,0-3.612,1.349,7.428,7.428,0,0,0-.837,3.137C6727.792,461,6727.873,463.449,6727.873,465.991Z"
+                transform="translate(-259.986 -59.407)" fill="#8989a2" />
+              <path id="Path_674" data-name="Path 674"
+                d="M6585.836,431.516H6583.4V428.73h2.619c0-1.716,0-3.313,0-4.911,0-1.305,0-1.305,1.309-1.307,2.377,0,2.376,0,2.378,2.356q0,1.714.019,3.428a1.593,1.593,0,0,0,.117.362h3.656v2.827h-3.721c-.027.47-.067.855-.068,1.24,0,1.915-.029,3.832.025,5.746.053,1.867.771,2.428,2.636,2.194.295-.037.594-.049.866-.071.045.079.075.108.076.138.08,2.71.736,2.8-2.474,2.863-3.235.065-4.776-1.435-4.878-4.664-.065-2.082-.036-4.166-.056-6.249C6585.9,432.322,6585.862,431.964,6585.836,431.516Z"
+                transform="translate(-147.487 -36.692)" fill="#8989a2" />
+              <path id="Path_675" data-name="Path 675"
+                d="M6425.686,392.51c-.182.155-.254.213-.322.276q-.342.318-.683.638a3.862,3.862,0,0,1-.528-.808c-.252-.728-.4-1.493-.658-2.218a10.678,10.678,0,0,0-2.217-4.028c-1,2.392-1,2.392-1.521,2.647a43.025,43.025,0,0,0-.781-4.407c-.407-1.459-1.08-2.844-1.69-4.4l-1.192,2.106c-.517-1.23-.871-2.275-1.384-3.235a5.449,5.449,0,0,0-2.218-2.527c-.2,5.153-2.757,8.834-7.035,10.152l-.539-1.93a9.5,9.5,0,0,0-2.868,4.414c-.526,1.647-.9,3.342-1.355,5.044l-.6-.279a16.526,16.526,0,0,0-1.381,5.459c-.662,7.632,5.632,15.053,12.924,15.143a13.031,13.031,0,0,0,8.957-2.991C6426.6,406.432,6426.984,399.748,6425.686,392.51Zm-7.322,15.935a2.148,2.148,0,0,0-1.389,1.251,5.153,5.153,0,0,1-5.393,2.847,4.845,4.845,0,0,1-4.049-4.608,1.417,1.417,0,0,0-.525-.932,4.869,4.869,0,0,1-2.248-5.294,4.79,4.79,0,0,1,3.74-3.905,4.6,4.6,0,0,1,5.267,1.971c.077.106.164.206.246.309l.1-.283a16.693,16.693,0,0,1,3.8-.234,4.2,4.2,0,0,1,3.46,4.032A4.664,4.664,0,0,1,6418.363,408.445Z"
+                fill="#8989a2" />
+              <path id="Path_676" data-name="Path 676"
+                d="M6896.8,458.184c-.044-3.9-2.321-6.718-5.891-7.3-4.079-.67-7.888,1.384-9.09,4.982-1.527,4.569.665,9.6,6.288,10.323,3.067.394,5.791-.2,7.99-2.778a17.106,17.106,0,0,1-1.611-.958,1.538,1.538,0,0,0-1.886-.027,8.019,8.019,0,0,1-2.839.874,4.089,4.089,0,0,1-4.565-3.671h11.6C6896.8,459.052,6896.806,458.618,6896.8,458.184Zm-11.532-1.116a3.114,3.114,0,0,1,1.755-2.9,4.163,4.163,0,0,1,4.48-.092,3.15,3.15,0,0,1,1.523,3Z"
+                transform="translate(-385.369 -59.24)" fill="#8989a2" />
+              <path id="Path_677" data-name="Path 677"
+                d="M6977.815,456.36a4.4,4.4,0,0,0-3.675-4.153,17.3,17.3,0,0,0-4.957-.208,7.263,7.263,0,0,0-4.377,2.082l1.871,2.117c.384-.258.653-.457.938-.629a5.508,5.508,0,0,1,5.182-.608,2.173,2.173,0,0,1,1.469,2.735c-.448.025-.914.055-1.379.078-2.417.12-4.852.212-7,1.518a3.991,3.991,0,0,0-.125,6.862,7.008,7.008,0,0,0,4.327,1.008,6,6,0,0,0,4.394-2.129c.051.7.086,1.184.125,1.72h3.545C6978.054,463.24,6978.052,459.792,6977.815,456.36Zm-4.8,7.4a4.286,4.286,0,0,1-4.4.3,1.618,1.618,0,0,1-.213-2.815,3.834,3.834,0,0,1,1.608-.766c1.4-.228,2.831-.316,4.354-.47C6974.561,461.659,6974.258,462.946,6973.012,463.756Z"
+                transform="translate(-451.26 -60.168)" fill="#8989a2" />
+              <path id="Path_678" data-name="Path 678"
+                d="M6645.372,451.182c-5.039-.133-8.432,2.881-8.522,7.571a7.9,7.9,0,0,0,15.8.1A7.43,7.43,0,0,0,6645.372,451.182Zm3.249,9.348a3.96,3.96,0,0,1-4.932,2.979c-1.875-.486-3.066-2.361-3.053-4.806.018-3.264,2.381-5.29,5.272-4.52C6648.2,454.793,6649.4,457.6,6648.621,460.53Z"
+                transform="translate(-190.161 -59.579)" fill="#8989a2" />
+              <path id="Path_679" data-name="Path 679"
+                d="M6480.775,511.8c.4-.433.646-.917,1-1.021a1.453,1.453,0,0,1,1.219.306c.269.266.262.81.423,1.407Z"
+                transform="translate(-65.553 -107.133)" fill="#8989a2" />
+              <path id="Path_680" data-name="Path 680"
+                d="M6449.286,505.462c-.01-.924.375-1.418,1.239-1.389.8.027,1.193.481,1.1,1.389Z"
+                transform="translate(-40.412 -101.81)" fill="#8989a2" />
+            </g>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="151.316" height="30.967" viewBox="0 0 151.316 30.967"
+            class="testimony__company">
+            <g id="Group_25" data-name="Group 25" transform="translate(-5416.018 829.965)">
+              <path id="Path_657" data-name="Path 657"
+                d="M5434.726-771.365c.816.558,1.648,1.085,2.421,1.716a7.619,7.619,0,0,1-1.556,12.379,13.516,13.516,0,0,1-6.065,1.338c-4.265.025-8.531,0-12.8.019-.529,0-.715-.117-.712-.684.021-4.944,0-9.888.016-14.832a3.512,3.512,0,0,1,3.441-3.566c.692-.094,1.4-.055,2.083-.2a47.492,47.492,0,0,1,10.136,2.484q1.1.406,2.194.819A1.407,1.407,0,0,1,5434.726-771.365Z"
+                transform="translate(0 -46.165)" fill="#00dcc0" />
+              <path id="Path_658" data-name="Path 658"
+                d="M5434.771-817.53a66.322,66.322,0,0,0-7.846-2.586c-1.724-.377-3.435-.818-5.188-1.042-.233-.169-.609.069-.78-.275-.729-.2-1.46-.4-2.186-.611a3.475,3.475,0,0,1-2.664-3.459c-.062-1.331-.021-2.666-.033-4,0-.269.029-.446.372-.439,5.123.1,10.251-.216,15.369.189a8.941,8.941,0,0,1,2.656.646c3.17,1.289,4.014,4.075,3.666,6.969A5.809,5.809,0,0,1,5434.771-817.53Z"
+                transform="translate(-0.045)" fill="#125eec" />
+              <path id="Path_659" data-name="Path 659"
+                d="M5878.152-804.929a7.158,7.158,0,0,1,5.423,2.652,5.8,5.8,0,0,1,1.04,2.251c.1.394-.013.549-.419.634a23.947,23.947,0,0,0-2.576.662c-.476.156-.61,0-.792-.4a3.956,3.956,0,0,0-5.365-1.846,1.728,1.728,0,0,0-1,1.642,1.583,1.583,0,0,0,1.092,1.478c2,.91,4.159,1.384,6.127,2.353a6.087,6.087,0,0,1,3.085,2.654,5.789,5.789,0,0,1-2.681,7.618,8.587,8.587,0,0,1-9.444-.747,6.86,6.86,0,0,1-2.6-4.836c-.046-.333.013-.526.4-.6,1.025-.2,2.05-.4,3.056-.677.459-.124.529.054.595.418a7.48,7.48,0,0,0,.33,1.283c.817,2.189,2.148,2.945,4.45,2.534a5.154,5.154,0,0,0,1.349-.385,1.925,1.925,0,0,0,1.258-1.816,2.094,2.094,0,0,0-1.149-1.987,18.436,18.436,0,0,0-3.994-1.57,12.978,12.978,0,0,1-3.583-1.705c-2.775-1.791-2.7-6.111-.02-8.138C5874.071-804.478,5875.537-804.964,5878.152-804.929Z"
+                transform="translate(-382.704 -21.102)" fill="#101419" />
+              <path id="Path_660" data-name="Path 660"
+                d="M6194.681-772.108c1.921-1.951,4.046-2.456,6.407-1.446a4.81,4.81,0,0,1,2.982,4.667c.058,3.24.007,6.483.022,9.724,0,.409-.106.545-.523.531-.862-.03-1.727-.036-2.588,0-.468.021-.554-.153-.552-.58.018-2.718.01-5.437.009-8.156,0-.209.008-.419-.009-.626-.154-1.778-1.006-2.687-2.463-2.632-2.087.079-3.1,1.011-3.109,2.9-.012,2.8-.017,5.594.01,8.391,0,.525-.091.737-.668.7-.86-.053-1.726-.035-2.588,0-.421.015-.523-.131-.522-.536q.021-6.94,0-13.88c0-.4.1-.555.524-.539a19.053,19.053,0,0,0,2.273-.006c.648-.053.918.135.8.8A4.756,4.756,0,0,0,6194.681-772.108Z"
+                transform="translate(-653.35 -47.124)" fill="#101419" />
+              <path id="Path_661" data-name="Path 661"
+                d="M6088.391-771.79c1.1-1.574,2.36-2.2,4.049-1.813.395.089.509.241.431.642-.165.844-.306,1.7-.411,2.549-.047.393-.134.521-.573.456-2.1-.309-3.167.556-3.224,2.713-.071,2.715-.06,5.433-.033,8.149.006.633-.182.8-.784.76-.833-.051-1.672-.027-2.508-.006-.34.009-.445-.092-.445-.439q.016-7.092,0-14.185c0-.37.1-.5.479-.488.783.027,1.57.046,2.351,0,.559-.036.753.145.675.69A8.3,8.3,0,0,0,6088.391-771.79Z"
+                transform="translate(-563.832 -47.418)" fill="#101419" />
+              <path id="Path_662" data-name="Path 662"
+                d="M5729.938-763.512c0,2.249-.014,4.5.011,6.747.005.49-.092.689-.632.658-.86-.049-1.726-.032-2.588,0-.41.013-.532-.114-.531-.529q.021-6.943,0-13.885c0-.4.1-.554.524-.541.889.027,1.78.033,2.667,0,.459-.018.56.146.557.575C5729.928-768.167,5729.938-765.84,5729.938-763.512Z"
+                transform="translate(-261.468 -49.645)" fill="#101419" />
+              <path id="Path_663" data-name="Path 663"
+                d="M6150.351-763.571c0,2.249-.016,4.5.013,6.748.006.52-.085.744-.667.706-.834-.054-1.674-.032-2.511-.006-.393.012-.541-.082-.538-.511q.03-6.944.015-13.889c0-.454.144-.572.577-.556.836.032,1.676.038,2.511,0,.481-.023.618.112.612.6C6150.335-768.175,6150.351-765.873,6150.351-763.571Z"
+                transform="translate(-615.888 -49.635)" fill="#101419" />
+              <path id="Path_664" data-name="Path 664"
+                d="M5728.155-804.555c-1.9,0-1.9,0-1.9-1.889,0-1.565,0-1.57,1.606-1.563.675,0,1.547-.22,1.973.114.453.357.134,1.269.146,1.936.024,1.4.007,1.4-1.428,1.4Z"
+                transform="translate(-261.512 -18.45)" fill="#11151a" />
+              <path id="Path_665" data-name="Path 665"
+                d="M6148.277-807.644c1.776,0,1.776,0,1.775,1.784,0,1.67,0,1.685-1.638,1.664-.669-.009-1.559.3-1.944-.141-.327-.374-.1-1.241-.1-1.89,0-1.416,0-1.416,1.437-1.416Z"
+                transform="translate(-615.59 -18.815)" fill="#101419" />
+              <path id="Path_666" data-name="Path 666"
+                d="M5439.466-775.64c.25.118.562.064.78.275l-2.216,0C5438.462-775.7,5439.026-775.341,5439.466-775.64Z"
+                transform="translate(-18.554 -45.793)" fill="#59d4dc" />
+              <path id="Path_667" data-name="Path 667"
+                d="M5627.181-793.419a5.692,5.692,0,0,0,1.3-1.227,4.618,4.618,0,0,0,.316-4.7,5.023,5.023,0,0,0-4.319-3.077c-3-.259-6.01-.048-9.015-.108-.517-.01-.518.242-.517.62q.013,4.823.005,9.645,0,4.509.005,9.018c0,.245-.16.6.355.592,3.238-.081,6.488.25,9.714-.183a5.677,5.677,0,0,0,4.874-4.549C5630.426-790.089,5629.6-791.927,5627.181-793.419Zm-7.771-5.6c1.255.02,2.512-.013,3.767.017a2.113,2.113,0,0,1,2.291,2.229,2.1,2.1,0,0,1-2.3,2.2c-.6.018-1.2,0-1.8,0v0c-.654,0-1.309-.021-1.961.008-.4.018-.549-.082-.538-.512.03-1.15.032-2.3,0-3.451C5618.848-798.969,5619.033-799.026,5619.41-799.02Zm4.614,12.615c-.778.055-1.563.01-2.346.01v.041c-.757,0-1.514-.014-2.27.006-.372.01-.559-.051-.548-.5.031-1.382.022-2.765,0-4.147,0-.366.091-.5.476-.49,1.539.025,3.08-.015,4.618.032a2.3,2.3,0,0,1,2.315,2.353C5626.294-787.408,5625.572-786.513,5624.024-786.4Z"
+                transform="translate(-167.677 -23.103)" fill="#101419" />
+              <path id="Path_668" data-name="Path 668"
+                d="M6301.024-773.218c-.4-.341-1.287-.121-1.96-.125-1.388-.009-1.388,0-1.589,1.316a10.788,10.788,0,0,0-.914-.827,6.1,6.1,0,0,0-7.366.71c-3.12,2.928-3.065,8.045-1.405,10.862,2.11,3.58,6.937,4.47,9.606,1.489,0,.67,0,1.26,0,1.851a2.808,2.808,0,0,1-3.022,3.116,3.951,3.951,0,0,1-3.792-2.432c-.506.34-.961.643-1.415.95-1.515,1.026-1.53,1.186-.246,2.554.036.038.075.073.112.11a7.39,7.39,0,0,0,5.586,1.993,6.333,6.333,0,0,0,6.533-6.521q0-6.548-.005-13.1C6301.146-771.942,6301.445-772.857,6301.024-773.218Zm-3.594,6.025c-.017.443,0,.888,0,1.332s.005.888,0,1.332a2.95,2.95,0,0,1-1.923,3.012,3.483,3.483,0,0,1-3.778-.7c-1.79-1.628-1.78-6.051.208-7.515a3.5,3.5,0,0,1,3.685-.461A2.9,2.9,0,0,1,6297.43-767.193Z"
+                transform="translate(-733.915 -47.358)" fill="#101419" />
+              <path id="Path_669" data-name="Path 669"
+                d="M5778.675-772.919c0-.418-.18-.464-.517-.453-.575.019-1.15.005-1.726.005-1.238,0-1.237,0-1.305,1.23,0,.028-.071.052-.112.08a10.528,10.528,0,0,0-.917-.838c-2.105-1.525-5.513-1.076-7.476.861-2.886,2.849-2.992,7.737-1.3,10.681,2.154,3.741,7.049,4.455,9.653,1.5,0,.869.028,1.571-.006,2.269a2.614,2.614,0,0,1-2.024,2.574,3.836,3.836,0,0,1-3.963-1.016c-.359-.362-.465-1.136-.958-1.1-.477.037-.919.545-1.372.853-1.511,1.025-1.526,1.2-.242,2.535.036.038.074.073.112.11a7.552,7.552,0,0,0,6.149,1.939,6.153,6.153,0,0,0,5.959-6.015C5778.731-762.774,5778.659-767.847,5778.675-772.919Zm-3.665,6.965H5775c0,.548.03,1.1-.006,1.645a2.936,2.936,0,0,1-2.022,2.8,3.358,3.358,0,0,1-3.639-.7c-1.9-1.8-1.871-5.78.051-7.455a3.418,3.418,0,0,1,3.732-.583,2.943,2.943,0,0,1,1.9,3.039C5775-766.79,5775.01-766.372,5775.01-765.954Z"
+                transform="translate(-293.515 -47.337)" fill="#101419" />
+              <path id="Path_670" data-name="Path 670"
+                d="M5992.486-769.223a6.37,6.37,0,0,0-5.208-4.562,5.439,5.439,0,0,0-5.15,1.761,4.231,4.231,0,0,1,0-.611c.122-.663-.15-.858-.8-.8a12.872,12.872,0,0,1-2.039,0c-.538-.037-.7.107-.7.675q.032,9.966,0,19.932c0,.528.1.751.679.71a12.593,12.593,0,0,1,2.2,0c.732.077.846-.211.835-.866-.041-2.261-.016-4.523-.016-6.818.12.048.179.053.205.085,1.99,2.466,6.642,2.175,8.786-.744A9.084,9.084,0,0,0,5992.486-769.223Zm-4.561,7.01a3.371,3.371,0,0,1-3.726.6,2.941,2.941,0,0,1-1.9-2.881c-.014-.5,0-.992,0-1.489,0-.418,0-.836,0-1.254a3.086,3.086,0,0,1,2.085-3.159,3.666,3.666,0,0,1,3.87.989C5989.852-767.6,5989.705-763.833,5987.925-762.214Z"
+                transform="translate(-474.225 -47.284)" fill="#101419" />
+            </g>
+          </svg>
+          <svg class="testimony__company" id="Clearbit" xmlns="http://www.w3.org/2000/svg" width="111.666" height="29.062"
+            viewBox="0 0 111.666 29.062">
+            <path id="Path_646" data-name="Path 646"
+              d="M6132.182-214.977h-19.176a4.95,4.95,0,0,1-4.935-4.935v-19.176a4.95,4.95,0,0,1,4.935-4.934h19.176a4.949,4.949,0,0,1,4.934,4.934v19.176a4.927,4.927,0,0,1-4.934,4.934"
+              transform="translate(-6108.071 244.039)" fill="#8989a2" />
+            <path id="Path_647" data-name="Path 647"
+              d="M6177.623-244.094h-9.588v14.522h14.522v-9.588a4.939,4.939,0,0,0-4.935-4.935"
+              transform="translate(-6153.513 244.094)" fill="#a0a0bd" />
+            <path id="Path_648" data-name="Path 648" d="M6168.035-169.536h9.588a4.95,4.95,0,0,0,4.935-4.935v-9.588h-14.522Z"
+              transform="translate(-6153.513 198.598)" fill="#bcbcd8" />
+            <g id="Group_24" data-name="Group 24" transform="translate(43.901 7.19)">
+              <path id="Path_649" data-name="Path 649"
+                d="M6299.952-202.264a.39.39,0,0,1,.281.126l.737.805a5.931,5.931,0,0,1-2.07,1.542,7.054,7.054,0,0,1-2.933.553,6.909,6.909,0,0,1-2.725-.519,5.974,5.974,0,0,1-2.085-1.455,6.564,6.564,0,0,1-1.338-2.245,8.37,8.37,0,0,1-.476-2.88,7.874,7.874,0,0,1,.51-2.88,6.586,6.586,0,0,1,1.43-2.25,6.4,6.4,0,0,1,2.206-1.459,7.513,7.513,0,0,1,2.836-.519,6.685,6.685,0,0,1,2.643.475,6.677,6.677,0,0,1,1.974,1.29l-.611.863a.663.663,0,0,1-.155.16.425.425,0,0,1-.252.063.489.489,0,0,1-.267-.092c-.094-.062-.206-.137-.334-.228s-.282-.187-.457-.291a3.987,3.987,0,0,0-.62-.291,5.146,5.146,0,0,0-.834-.228,5.8,5.8,0,0,0-1.095-.092,5.292,5.292,0,0,0-2.042.383,4.581,4.581,0,0,0-1.6,1.091,4.962,4.962,0,0,0-1.042,1.726,6.591,6.591,0,0,0-.374,2.279,6.712,6.712,0,0,0,.374,2.318,5.108,5.108,0,0,0,1.019,1.721,4.28,4.28,0,0,0,1.527,1.071,4.882,4.882,0,0,0,1.9.369,7.733,7.733,0,0,0,1.115-.073,4.575,4.575,0,0,0,.917-.228,3.855,3.855,0,0,0,.785-.393,6.058,6.058,0,0,0,.732-.567A.494.494,0,0,1,6299.952-202.264Z"
+                transform="translate(-6289.343 213.678)" fill="#8989a2" />
+              <path id="Path_650" data-name="Path 650" d="M6348.968-214.406v14.284h-1.726v-14.284Z"
+                transform="translate(-6333.22 214.406)" fill="#8989a2" />
+              <path id="Path_651" data-name="Path 651"
+                d="M6368.646-196.628a4.391,4.391,0,0,1,1.63.3,3.669,3.669,0,0,1,1.29.853,3.907,3.907,0,0,1,.849,1.377,5.333,5.333,0,0,1,.3,1.867,1.127,1.127,0,0,1-.087.543.362.362,0,0,1-.33.136h-6.537a5.427,5.427,0,0,0,.252,1.619,3.321,3.321,0,0,0,.641,1.149,2.555,2.555,0,0,0,.97.689,3.328,3.328,0,0,0,1.26.228,3.7,3.7,0,0,0,1.121-.15,5.306,5.306,0,0,0,.809-.325,6.179,6.179,0,0,0,.568-.325.751.751,0,0,1,.392-.15.382.382,0,0,1,.331.165l.484.63a3.267,3.267,0,0,1-.766.674,4.752,4.752,0,0,1-.954.47,6.073,6.073,0,0,1-1.053.276,6.413,6.413,0,0,1-1.076.092,5,5,0,0,1-1.876-.344,4.128,4.128,0,0,1-1.484-1.008,4.649,4.649,0,0,1-.974-1.644,6.691,6.691,0,0,1-.349-2.25,5.716,5.716,0,0,1,.315-1.92,4.514,4.514,0,0,1,.907-1.547,4.164,4.164,0,0,1,1.444-1.028A4.746,4.746,0,0,1,6368.646-196.628Zm.039,1.271a2.648,2.648,0,0,0-1.968.722,3.4,3.4,0,0,0-.893,2h5.344a3.5,3.5,0,0,0-.165-1.1,2.466,2.466,0,0,0-.485-.863,2.174,2.174,0,0,0-.781-.562A2.634,2.634,0,0,0,6368.685-195.357Z"
+                transform="translate(-6345.963 200.934)" fill="#8989a2" />
+              <path id="Path_652" data-name="Path 652"
+                d="M6414.481-186.71h-.767a.905.905,0,0,1-.406-.078.426.426,0,0,1-.2-.33l-.193-.912q-.388.349-.757.626a4.339,4.339,0,0,1-.776.465,3.985,3.985,0,0,1-.867.286,4.983,4.983,0,0,1-1.023.1,3.489,3.489,0,0,1-1.071-.161,2.445,2.445,0,0,1-.868-.482,2.288,2.288,0,0,1-.587-.812,2.847,2.847,0,0,1-.218-1.163,2.17,2.17,0,0,1,.32-1.124,2.809,2.809,0,0,1,1.032-.959,6.728,6.728,0,0,1,1.867-.686,12.7,12.7,0,0,1,2.822-.268v-.771a2.675,2.675,0,0,0-.49-1.742,1.776,1.776,0,0,0-1.45-.59,3.063,3.063,0,0,0-1.062.16,4,4,0,0,0-.747.359q-.315.2-.543.359a.784.784,0,0,1-.45.16.515.515,0,0,1-.306-.092.682.682,0,0,1-.208-.228l-.312-.553a5.615,5.615,0,0,1,1.756-1.173,5.419,5.419,0,0,1,2.085-.388,3.722,3.722,0,0,1,1.464.271,3.01,3.01,0,0,1,1.077.756,3.213,3.213,0,0,1,.658,1.173,4.867,4.867,0,0,1,.224,1.513Zm-4.48-1.057a3.513,3.513,0,0,0,.834-.092,3.265,3.265,0,0,0,.713-.262,3.8,3.8,0,0,0,.641-.412,5.629,5.629,0,0,0,.6-.553v-2.027a11.577,11.577,0,0,0-2.027.151,5.669,5.669,0,0,0-1.357.395,1.891,1.891,0,0,0-.762.576,1.237,1.237,0,0,0-.237.741,1.646,1.646,0,0,0,.126.673,1.26,1.26,0,0,0,.34.463,1.326,1.326,0,0,0,.5.263A2.276,2.276,0,0,0,6410-187.767Z"
+                transform="translate(-6378.311 200.994)" fill="#8989a2" />
+              <path id="Path_653" data-name="Path 653"
+                d="M6449.506-186.71v-9.823h.989a.549.549,0,0,1,.388.107.657.657,0,0,1,.146.369l.116,1.532a4.5,4.5,0,0,1,1.246-1.6,2.753,2.753,0,0,1,1.741-.577,2.738,2.738,0,0,1,.737.092,2.594,2.594,0,0,1,.611.257l-.223,1.29a.292.292,0,0,1-.3.242,1.5,1.5,0,0,1-.417-.092,2.626,2.626,0,0,0-.786-.092,2.221,2.221,0,0,0-1.507.524,3.922,3.922,0,0,0-1.013,1.522v6.255Z"
+                transform="translate(-6410.717 200.994)" fill="#8989a2" />
+              <path id="Path_654" data-name="Path 654"
+                d="M6482.021-200.122v-14.284h1.735v5.877a5.015,5.015,0,0,1,1.4-1.139,3.714,3.714,0,0,1,1.809-.432,3.616,3.616,0,0,1,1.541.32,3.113,3.113,0,0,1,1.174.955,4.614,4.614,0,0,1,.747,1.571,8.023,8.023,0,0,1,.262,2.158,6.764,6.764,0,0,1-.291,2.022,4.859,4.859,0,0,1-.839,1.619,3.945,3.945,0,0,1-1.338,1.076,3.947,3.947,0,0,1-1.78.393,3.278,3.278,0,0,1-1.613-.369,3.672,3.672,0,0,1-1.16-1.028l-.087.892a.415.415,0,0,1-.445.369Zm4.383-8.6a2.783,2.783,0,0,0-1.479.388,4.271,4.271,0,0,0-1.168,1.1v4.752a2.708,2.708,0,0,0,1.032.9,2.989,2.989,0,0,0,1.266.262,2.486,2.486,0,0,0,2.114-.979,4.575,4.575,0,0,0,.737-2.793,6.959,6.959,0,0,0-.17-1.649,3.219,3.219,0,0,0-.49-1.13,1.9,1.9,0,0,0-.785-.645A2.605,2.605,0,0,0,6486.4-208.723Z"
+                transform="translate(-6435.357 214.406)" fill="#8989a2" />
+              <path id="Path_655" data-name="Path 655"
+                d="M6528.368-212.6a1.092,1.092,0,0,1-.1.47,1.378,1.378,0,0,1-.271.388,1.258,1.258,0,0,1-.393.267,1.179,1.179,0,0,1-.476.1,1.132,1.132,0,0,1-.47-.1,1.26,1.26,0,0,1-.388-.267,1.273,1.273,0,0,1-.268-.388,1.148,1.148,0,0,1-.1-.47,1.218,1.218,0,0,1,.1-.48,1.246,1.246,0,0,1,.268-.4,1.268,1.268,0,0,1,.388-.267,1.136,1.136,0,0,1,.47-.1,1.183,1.183,0,0,1,.476.1,1.266,1.266,0,0,1,.393.267,1.342,1.342,0,0,1,.271.4A1.157,1.157,0,0,1,6528.368-212.6Zm-.387,3.084v9.823h-1.728v-9.823Z"
+                transform="translate(-6468.614 213.982)" fill="#8989a2" />
+              <path id="Path_656" data-name="Path 656"
+                d="M6546.928-195.992a2.366,2.366,0,0,1-1.789-.65,2.591,2.591,0,0,1-.626-1.872v-6.012h-1.183a.386.386,0,0,1-.262-.092.359.359,0,0,1-.106-.286v-.688l1.609-.2.4-3.035a.367.367,0,0,1,.126-.238.4.4,0,0,1,.271-.092h.874v3.385h2.813v1.251h-2.812v5.9a1.255,1.255,0,0,0,.3.921,1.049,1.049,0,0,0,.776.3,1.359,1.359,0,0,0,.469-.073,1.984,1.984,0,0,0,.344-.16q.146-.088.247-.16a.327.327,0,0,1,.18-.073.3.3,0,0,1,.243.165l.5.824a3.207,3.207,0,0,1-1.076.655A3.66,3.66,0,0,1,6546.928-195.992Z"
+                transform="translate(-6481.54 210.431)" fill="#8989a2" />
+            </g>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="85.231" height="29.586" viewBox="0 0 85.231 29.586"
+            class="testimony__company">
+            <g id="Mine" transform="translate(-1.769 -0.653)">
+              <g id="Group_26" data-name="Group 26" transform="translate(4.097 9.53)">
+                <path id="Fill-1"
+                  d="M28.28,43.73a1.3,1.3,0,0,0,.224,1.287,1.454,1.454,0,0,0,1.2.264,5.707,5.707,0,0,1,2.509.017,1.58,1.58,0,0,1,.693,2.315,6.368,6.368,0,0,1-1.21,1.454,33.654,33.654,0,0,0-3.944,5.669c-.493.8-1.146,1.866-2.184,1.972a1.877,1.877,0,0,1-2.1-1.449c-.141-.979.806-1.913,1.452-2.556.454-.454.878-.922,1.3-1.41.493-.564.959-1.126,1.4-1.725.515-.7,1.371-1.846.739-2.711-.458-.636-1.432-.525-2.068-.271a5.137,5.137,0,0,0-2.019,1.706,25.479,25.479,0,0,0-1.526,2.566,5.478,5.478,0,0,1-1.513,1.878,1.546,1.546,0,0,1-2.068-.357,2.294,2.294,0,0,1,.246-2.386,9.121,9.121,0,0,1,1.383-1.607c.781-.8,1.573-1.595,2.332-2.418.38-.422.757-.838,1.1-1.272.311-.4.779-.924.641-1.479-.261-1.045-1.913-.666-2.588-.335a8.947,8.947,0,0,0-2.485,2.11,23.286,23.286,0,0,0-2.058,2.768c-1.306,1.947-2.512,3.974-3.86,5.891-.562.8-1.232,1.767-2.26,1.972a1.79,1.79,0,0,1-2.152-1.592,3.639,3.639,0,0,1,.937-2.465q.7-.91,1.43-1.792c1.3-1.573,2.61-3.148,3.944-4.683,1.131-1.316,2.218-2.662,3.281-4.045.6-.794,1.213-1.575,1.765-2.4a8.283,8.283,0,0,1,1.8-2.154,1.921,1.921,0,0,1,2.236-.192c.833.646.422,1.844.076,2.628s-.678,1.77.316,2.147c.7.271,1.479.054,2.164.4a1.91,1.91,0,0,1,.875,2.258"
+                  transform="translate(-9.444 -36.01)" fill="#8989a2" fill-rule="evenodd" />
+              </g>
+              <g id="Group_27" data-name="Group 27" transform="translate(1.769 0.653)">
+                <path id="Fill-4"
+                  d="M7.3,16.659a73.669,73.669,0,0,1,5.273-6.776c1.595-1.817,3.278-3.557,4.93-5.329a3.646,3.646,0,0,0,1.131-2.366A1.578,1.578,0,0,0,17.009.5a3.257,3.257,0,0,0-2.251,1.553C14.12,2.87,13.573,3.752,13,4.61c-.547.811-1.163,1.568-1.745,2.354-.641.875-1.262,1.77-1.972,2.583-.552.624-1.26,1.743-2.218,1.725a.853.853,0,0,1-.769-.572,1.269,1.269,0,0,1,.246-1.232A14.161,14.161,0,0,1,8.034,7.7,6.321,6.321,0,0,0,9.459,6.03a1.868,1.868,0,0,0-.288-1.937A1.146,1.146,0,0,0,8.01,3.708c-.493.143-.833.638-1.232.912-.266.18-.821.343-.986-.054s.328-.786.545-1.008C6.937,2.939,8,2.3,8.061,1.352A1.344,1.344,0,0,0,6.2.077,4.433,4.433,0,0,0,4.117,1.891c-.466.661-1.277,1.819-.969,2.672a1.077,1.077,0,0,0,.915.666c.424.067,1.011-.165,1.383.084.845.567-.19,1.925-.572,2.465A18.618,18.618,0,0,1,2.9,10.095c-.754.759-1.592,1.479-2.27,2.3a1.994,1.994,0,0,0-.37,2.379,1.481,1.481,0,0,0,2.361.017,22.682,22.682,0,0,1,1.809-2.371,1.256,1.256,0,0,1,1.191-.357.853.853,0,0,1,.493,1.114,6.364,6.364,0,0,1-1.79,2.4c-.7.739-1.479,1.375-2.162,2.108A3.35,3.35,0,0,0,1.13,20.147a1.459,1.459,0,0,0,.72,1.139,2.143,2.143,0,0,0,2.384-.611,18.406,18.406,0,0,0,2.428-3.14Z"
+                  transform="translate(-0.001 0.002)" fill="#8989a2" fill-rule="evenodd" />
+              </g>
+              <path id="Fill-7"
+                d="M79.168,5.481c-.493.513-1.04.986-1.541,1.479s-1.232,1.252-1,2.021a1.061,1.061,0,0,0,1.725.343c.569-.493,1.05-1.274,1.915-1.048a1.536,1.536,0,0,1,.887,1.908,4.074,4.074,0,0,1-1.326,1.856,11.687,11.687,0,0,0-1.573,2.006c-.355.574-.725,1.171-1.479,1.232a1.484,1.484,0,0,1-1.449-1.2,2.641,2.641,0,0,1,.823-2.218c.4-.493.89-1.245.291-1.8-.651-.6-1.546-.19-2.218.1a1.419,1.419,0,0,1-1.95-.515A2,2,0,0,1,72.589,7.6c.658-.947,1.536-1.725,2.218-2.667.87-1.163,1.457-3.044,3.214-2.906A2.048,2.048,0,0,1,79.679,3.26a2.14,2.14,0,0,1-.51,2.218"
+                transform="translate(-52.558 -0.869)" fill="#8989a2" fill-rule="evenodd" />
+              <path id="Fill-9"
+                d="M130.66,36.5h3.148V22.328L139.5,36.5h1.129l5.588-14.169V36.5h3.49V17.739h-4.619l-4.826,12.818-4.93-12.806H130.66Zm21.08,0h3.175V22.777H151.74Zm1.548-15.978a1.831,1.831,0,1,0-1.325-.509A1.824,1.824,0,0,0,153.288,20.522ZM156.946,36.5h3.175V28.417a3.041,3.041,0,0,1,3.227-3.278c1.888,0,2.729.944,2.729,3.017V36.5h3.175V27.872c0-3.779-1.942-5.379-4.7-5.379a4.74,4.74,0,0,0-4.437,2.465V22.777h-3.17Zm20.385.261c3.515,0,5.849-1.575,6.3-4.459h-3.064c-.247,1.336-1.232,2.1-3.148,2.1-2.361,0-3.673-1.479-3.779-4.067h10.047v-.917c0-4.908-3.069-6.927-6.48-6.927-3.907,0-6.821,2.832-6.821,7.084v.21a6.576,6.576,0,0,0,6.954,6.978Zm-3.648-8.553c.32-2.125,1.607-3.414,3.52-3.414,1.972,0,3.175,1.048,3.333,3.409Z"
+                transform="translate(-96.684 -12.062)" fill="#8989a2" fill-rule="evenodd" />
+            </g>
+          </svg>
+          <svg id="Shake" xmlns="http://www.w3.org/2000/svg" width="86.531" height="29.986" viewBox="0 0 86.531 29.986"
+            class="testimony__company">
+            <path id="Fill-30"
+              d="M7338.439-217.464h15.2a5.133,5.133,0,0,0,4.656-2.563,4.875,4.875,0,0,0-.647-5.378l-8.806-10.567a1.377,1.377,0,0,1,.173-1.918l8.965-7.469,1.136,1.226-8.523,7.422,8.459,10.142a6.719,6.719,0,0,1,.979,7.186,6.678,6.678,0,0,1-6.218,3.68l-15.373.015a.881.881,0,0,1-.884-.88v-.016a.881.881,0,0,1,.884-.881"
+              transform="translate(-7336.292 245.674)" fill="#8989a2" fill-rule="evenodd" />
+            <path id="Fill-32"
+              d="M7340.334-218.346l15.451-2.846a2.19,2.19,0,0,0,1.625-1.447,2.185,2.185,0,0,0-.394-2.138c-3.646-4.387-7.276-8.743-10.922-13.145a1.749,1.749,0,0,1-.363-1.541,1.759,1.759,0,0,1,1.025-1.211l13.606-5.881.489,1.73-12.974,5.629a.259.259,0,0,0-.173.2.282.282,0,0,0,.063.267c3.551,4.261,7.07,8.491,10.623,12.752a3.888,3.888,0,0,1,.773,3.947,3.8,3.8,0,0,1-2.92,2.595l-12.216,2.248Z"
+              transform="translate(-7338.377 246.571)" fill="#8989a2" fill-rule="evenodd" />
+            <path id="Fill-34"
+              d="M7360.6-244.857l-15.452,2.846a2.117,2.117,0,0,0-1.625,1.447,2.19,2.19,0,0,0,.395,2.138c3.646,4.387,7.276,8.743,10.922,13.13a1.791,1.791,0,0,1,.363,1.557,1.8,1.8,0,0,1-1.025,1.211l-13.606,5.881-.489-1.73,12.974-5.629a.323.323,0,0,0,.173-.2.325.325,0,0,0-.063-.267c-7.7-9.23-3.819-4.591-10.622-12.752a3.888,3.888,0,0,1-.773-3.947,3.78,3.78,0,0,1,2.921-2.595l15.31-2.846Z"
+              transform="translate(-7338.188 246.618)" fill="#8989a2" fill-rule="evenodd" />
+            <path id="Fill-36"
+              d="M7354.71-244.84h-15.2a5.172,5.172,0,0,0-4.656,2.547,4.931,4.931,0,0,0,.664,5.393l8.807,10.567a1.364,1.364,0,0,1-.19,1.918l-8.948,7.469-1.137-1.226,8.507-7.422-8.444-10.142a6.72,6.72,0,0,1-.978-7.186,6.67,6.67,0,0,1,6.2-3.68l15.373-.016a.894.894,0,0,1,.9.88v.016a.894.894,0,0,1-.9.881"
+              transform="translate(-7332.503 246.617)" fill="#8989a2" fill-rule="evenodd" />
+            <path id="Fill-38" d="M7347.988-157.908l-8.159,6.809-1.137-1.227,7.465-6.51Z"
+              transform="translate(-7337.146 180.771)" fill="#8989a2" fill-rule="evenodd" />
+            <path id="Fill-40" d="M7351.635-150.436l-11.064,4.78-.489-1.73,10.59-4.591Z"
+              transform="translate(-7338.188 175.626)" fill="#8989a2" fill-rule="evenodd" />
+            <path id="Fill-42" d="M7340.335-140.509l12.374-2.28.473,1.745-9.154,1.7Z"
+              transform="translate(-7338.378 168.734)" fill="#8989a2" fill-rule="evenodd" />
+            <path id="Fill-44"
+              d="M7338.439-133.728h12.8a7.249,7.249,0,0,1,.221,1.761l-13.021.016a.881.881,0,0,1-.884-.88v-.016a.881.881,0,0,1,.884-.881"
+              transform="translate(-7336.292 161.937)" fill="#8989a2" fill-rule="evenodd" />
+            <path id="Fill-46"
+              d="M7501.054-210.462a5.826,5.826,0,0,0-.426-.723l-3.173-5.095,3.6-5.582-4.277-.016c-.111.031-2.873,4.717-3.236,5.315v-9.56c-.41-.031-3.251-.047-3.6.016v15.661c.742-.015,3.14.031,3.6-.015l.016-5.283c.11.11,2.936,4.969,3.062,5.283Zm10.323-4.765a6.165,6.165,0,0,0-.553-4.324,5.035,5.035,0,0,0-2.857-2.248,6.143,6.143,0,0,0-4.373.22,5.7,5.7,0,0,0-3.077,6.793c.694,2.767,3.046,4.183,5.744,4.481a9.977,9.977,0,0,0,4.467-.456v-2.563h-2.936a5.014,5.014,0,0,1-2.73-.645,2.043,2.043,0,0,1-.963-1.258Zm-7.372-2.374a1.848,1.848,0,0,1,1.973-1.808,1.694,1.694,0,0,1,1.8,1.808Zm-21.717-1.368a.756.756,0,0,1,.188.016c1.216.031,2.368.566,2.494,1.714a10.352,10.352,0,0,0-4.813.692,3.053,3.053,0,0,0-1.831,3.507,3.5,3.5,0,0,0,3.74,2.814,3.681,3.681,0,0,0,3.125-1.4l.553,1.179h2.683l-.062-6.164c-.016-1.51-.094-2.673-1.01-3.711-1.468-1.682-3.946-2.076-6.267-1.62a10.055,10.055,0,0,0-2.051.661v2.311Zm2.682,5.535c-.331.582-2.746,1.038-3.029-.2-.364-1.635,2.556-1.541,3.029-1.384Zm-29.057,2.107c.1.189.458.314.664.409a7.99,7.99,0,0,0,2.351.613c2.257.267,4.593-.142,5.777-2.154a3.437,3.437,0,0,0,.111-3.161c-1.168-2.186-4.782-1.824-5.509-2.532a.556.556,0,0,1,.032-.755,2.378,2.378,0,0,1,1.736-.377h3.488v-1.73c-.094-.22-1.042-.566-1.341-.676a7.74,7.74,0,0,0-5.16.063,3.513,3.513,0,0,0-1.689,5.173c1.009,1.321,2.494,1.415,4.23,1.824.457.11,1.246.236,1.2.771-.079.739-1.562.8-2.178.818h-3.709Zm13.952-6.746a2.89,2.89,0,0,1,1.974-.9c1.61-.016,1.941,1.054,1.941,2.28l-.016.991v5.252h3.6c.015-2.264,0-4.513.031-6.777a6.539,6.539,0,0,0-.489-3.208,3.615,3.615,0,0,0-3.314-1.666,4.634,4.634,0,0,0-3.741,1.666v-5.708h-3.6v15.693h3.6Z"
+              transform="translate(-7424.98 231.265)" fill="#8989a2" fill-rule="evenodd" />
+          </svg>
+        </div>
+      </section>
+      <section class="sign-up">
+        <div class="sign-up__text">
+          <h2>See why the world’s best companies use Qubly to become truly data-driven.</h2>
+          <p class="sign-up__desc">Trusted by</p>
+          <div class="sign-up__companies">
+            <svg class="sign-up__company" xmlns="http://www.w3.org/2000/svg" width="134" height="35.349"
+              viewBox="0 0 134 35.349">
+              <path id="accenture-4"
+                d="M77.988,9.921,85.7,7.054,77.988,4.02V0l13.2,5.328v3.28l-13.2,5.333ZM5.087,35.344C2.3,35.344,0,33.95,0,30.836V30.67c0-3.773,3.28-5.087,7.3-5.087H9.187v-.74c0-1.56-.654-2.46-2.294-2.46A2.039,2.039,0,0,0,4.6,24.35H.493C.82,20.9,3.527,19.264,7.134,19.264c3.688,0,6.394,1.56,6.394,5.414V35.012H9.348V33.205a5.042,5.042,0,0,1-4.261,2.139Zm4.1-5.494V28.376H7.467c-2.133,0-3.2.574-3.2,1.967v.166c0,1.067.654,1.806,2.133,1.806A2.5,2.5,0,0,0,9.187,29.85Zm14.1,5.494c-4.267,0-7.381-2.626-7.381-7.874v-.241c0-5.253,3.28-8.04,7.381-8.04,3.527,0,6.394,1.806,6.727,5.821h-4.1c-.247-1.474-1.067-2.46-2.541-2.46-1.806,0-3.114,1.474-3.114,4.508v.493c0,3.114,1.147,4.508,3.114,4.508a2.867,2.867,0,0,0,2.787-2.787H30.1C29.85,32.8,27.47,35.344,23.289,35.344Zm16.075,0c-4.267,0-7.381-2.626-7.381-7.874v-.241c0-5.247,3.28-8.035,7.381-8.035,3.527,0,6.394,1.806,6.727,5.821h-4.1c-.247-1.474-1.067-2.46-2.541-2.46-1.806,0-3.114,1.474-3.114,4.508v.493c0,3.114,1.147,4.508,3.114,4.508a2.867,2.867,0,0,0,2.787-2.787h3.934C45.924,32.8,43.545,35.344,39.364,35.344Zm16.155,0c-4.427,0-7.461-2.626-7.461-7.788v-.327c0-5.167,3.2-8.035,7.381-8.035,3.854,0,7.054,2.133,7.054,7.3v1.887H52.485c.166,2.787,1.394,3.854,3.2,3.854a2.768,2.768,0,0,0,2.868-1.967h4.02c-.574,2.862-2.953,5.076-7.054,5.076ZM52.485,25.5h5.821c-.08-2.294-1.147-3.28-2.868-3.28C54.045,22.308,52.812,23.043,52.485,25.5Zm12.628-5.9H69.46V21.9a4.941,4.941,0,0,1,4.674-2.626c2.787,0,4.674,1.721,4.674,5.414V35.017H74.461V25.342c0-1.806-.74-2.626-2.294-2.626a2.585,2.585,0,0,0-2.707,2.868v9.428H65.113Zm21.649-4.674V19.6h2.953v3.2H86.762v7.3c0,1.147.493,1.721,1.56,1.721a3.636,3.636,0,0,0,1.474-.247v3.361a8.36,8.36,0,0,1-2.46.327c-3.361,0-4.92-1.56-4.92-4.674V22.8h-1.8V19.6h1.806V16.729Zm19.189,20.089H101.6V32.723A4.77,4.77,0,0,1,97.1,35.349c-2.787,0-4.84-1.721-4.84-5.328V19.6H96.6v9.841c0,1.806.74,2.626,2.214,2.626a2.63,2.63,0,0,0,2.707-2.868V19.682h4.347V35.017Zm3.2-15.415H113.5v2.868a4.644,4.644,0,0,1,4.674-3.034V23.7c-2.953,0-4.674.9-4.674,3.446V35.1h-4.347Zm17.8,15.742c-4.427,0-7.461-2.626-7.461-7.788v-.327c0-5.167,3.2-8.035,7.381-8.035,3.854,0,7.054,2.133,7.054,7.3v1.887H123.912c.166,2.787,1.394,3.854,3.2,3.854a2.768,2.768,0,0,0,2.868-1.967H134c-.654,2.862-3.034,5.076-7.054,5.076ZM123.832,25.5h5.821c-.08-2.294-1.147-3.28-2.868-3.28C125.472,22.308,124.239,23.043,123.832,25.5Z"
+                transform="translate(0)" fill="#8989a2" />
+            </svg>
+            <svg class="sign-up__company" xmlns="http://www.w3.org/2000/svg" width="63.436" height="56.44"
+              viewBox="0 0 63.436 56.44">
+              <g id="react" transform="translate(-4.822 -4.639)">
+                <path id="Path_684" data-name="Path 684"
+                  d="M67.4,32.808q-1.013-.347-2.042-.643.171-.693.316-1.393c1.546-7.5.535-13.549-2.916-15.539-3.309-1.909-8.721.081-14.187,4.838q-.808.7-1.579,1.449-.517-.5-1.051-.971c-5.729-5.087-11.471-7.23-14.919-5.234-3.306,1.914-4.285,7.6-2.894,14.708q.208,1.056.469,2.1c-.812.231-1.6.477-2.348.738-6.716,2.341-11.005,6.011-11.005,9.818,0,3.932,4.6,7.875,11.6,10.266q.851.289,1.715.536-.281,1.125-.5,2.265c-1.327,6.988-.291,12.536,3.007,14.438,3.406,1.964,9.122-.055,14.688-4.92q.66-.577,1.324-1.22.835.806,1.715,1.565c5.391,4.639,10.716,6.513,14.011,4.606,3.4-1.97,4.508-7.93,3.072-15.182q-.164-.831-.38-1.7.6-.178,1.18-.368c7.272-2.409,12-6.3,12-10.289,0-3.82-4.427-7.515-11.279-9.873Z"
+                  transform="translate(-10.421 -9.875)" fill="#8989a2" />
+                <path id="Path_685" data-name="Path 685"
+                  d="M72.765,57.324c-.347.115-.7.226-1.065.333a63.6,63.6,0,0,0-3.212-8.036A63.577,63.577,0,0,0,71.575,41.7c.649.188,1.279.386,1.886.6,5.87,2.021,9.451,5.009,9.451,7.311,0,2.452-3.867,5.636-10.146,7.717ZM70.16,62.487a22.947,22.947,0,0,1,.3,8.372c-.378,2.037-1.138,3.394-2.077,3.938-2,1.157-6.275-.347-10.885-4.314q-.793-.682-1.6-1.454a63.683,63.683,0,0,0,5.317-6.752,63.261,63.261,0,0,0,8.592-1.324q.194.783.343,1.535ZM43.812,74.6c-1.953.69-3.509.709-4.449.167-2-1.154-2.833-5.609-1.7-11.585q.2-1.059.463-2.106a63.724,63.724,0,0,0,8.549,1.238,65.944,65.944,0,0,0,5.445,6.728q-.591.571-1.209,1.113a22.952,22.952,0,0,1-7.1,4.446Zm-9.15-17.288a22.957,22.957,0,0,1-7.4-3.93C25.69,52.031,24.9,50.693,24.9,49.607c0-2.31,3.444-5.256,9.188-7.259q1.081-.375,2.183-.687a64.992,64.992,0,0,0,3.092,8.012,65.98,65.98,0,0,0-3.13,8.126Q35.439,57.573,34.662,57.309ZM37.729,36.43c-1.192-6.093-.4-10.689,1.592-11.842,2.122-1.229,6.815.523,11.761,4.915.316.281.634.575.952.879a64.941,64.941,0,0,0-5.4,6.687,66.217,66.217,0,0,0-8.465,1.316q-.243-.972-.436-1.955Zm27.363,6.757q-.93-1.607-1.929-3.172c2.024.255,3.963.6,5.784,1.011a57.809,57.809,0,0,1-2.03,5.462q-.879-1.669-1.825-3.3ZM53.934,32.318a57.957,57.957,0,0,1,3.733,4.507q-3.747-.177-7.5,0c1.232-1.625,2.495-3.135,3.765-4.5ZM42.7,43.205q-.933,1.619-1.791,3.28C40.123,44.614,39.448,42.774,38.9,41c1.81-.405,3.74-.736,5.751-.987q-1.01,1.575-1.945,3.2Zm2,16.194a57.7,57.7,0,0,1-5.846-.94c.56-1.809,1.25-3.688,2.056-5.6q.861,1.662,1.8,3.282.957,1.652,1.992,3.258Zm9.3,7.689c-1.284-1.386-2.565-2.919-3.817-4.568q1.822.072,3.711.072,1.94,0,3.829-.085A57.629,57.629,0,0,1,54.009,67.089ZM66.943,52.762a57.554,57.554,0,0,1,2.13,5.58,57.512,57.512,0,0,1-5.918,1.009q1.006-1.594,1.948-3.228.957-1.66,1.84-3.361Zm-4.187,2.007q-1.441,2.5-3.043,4.91c-1.882.134-3.827.2-5.809.2s-3.894-.061-5.743-.181q-1.643-2.4-3.1-4.918-1.45-2.5-2.706-5.111,1.252-2.607,2.7-5.114h0q1.444-2.506,3.076-4.9c1.887-.143,3.821-.217,5.776-.217s3.9.075,5.787.219q1.614,2.385,3.056,4.88t2.735,5.09q-1.271,2.615-2.726,5.135Zm5.59-30.262c2.124,1.225,2.95,6.165,1.616,12.644q-.131.633-.285,1.261a64.919,64.919,0,0,0-8.482-1.34,63.661,63.661,0,0,0-5.362-6.692q.713-.687,1.459-1.338c4.683-4.076,9.06-5.685,11.055-4.535Z"
+                  transform="translate(-17.364 -16.802)" fill="#fff" />
+                <path id="Path_686" data-name="Path 686"
+                  d="M113.709,94.665a5.665,5.665,0,1,1-5.665,5.665,5.665,5.665,0,0,1,5.665-5.665"
+                  transform="translate(-77.169 -67.524)" fill="#8989a2" />
+              </g>
+            </svg>
+            <svg class="sign-up__company" xmlns="http://www.w3.org/2000/svg" width="130.425" height="40.705"
+              viewBox="0 0 130.425 40.705">
+              <path id="airbnb"
+                d="M398.514,450.226a2.649,2.649,0,1,1-2.649-2.648A2.643,2.643,0,0,1,398.514,450.226Zm-10.92,5.338v.652a5.088,5.088,0,0,0-3.952-1.631,8.069,8.069,0,0,0,0,16.135,4.947,4.947,0,0,0,3.952-1.671v.692a.557.557,0,0,0,.571.57h3.3V454.991h-3.3a.586.586,0,0,0-.571.572Zm0,9.819a4.047,4.047,0,0,1-3.3,1.671,4.405,4.405,0,1,1,0-8.8,4.159,4.159,0,0,1,3.3,1.671Zm6.316-10.39h3.911v15.32h-3.911V454.992Zm58.428-.408a5.091,5.091,0,0,0-3.953,1.631v-8.6h-3.911v22.695h3.3a.582.582,0,0,0,.57-.571v-.692a5.046,5.046,0,0,0,3.952,1.671,8.07,8.07,0,0,0,.042-16.136Zm-.652,12.428a3.989,3.989,0,0,1-3.3-1.671v-5.46a4.422,4.422,0,0,1,3.3-1.671,4.4,4.4,0,1,1,0,8.8Zm-9.249-5.785v9.127h-3.912v-8.679c0-2.526-.815-3.545-3.014-3.545a4.379,4.379,0,0,0-3.179,1.508v10.675h-3.91V454.993h3.1a.583.583,0,0,1,.571.571v.652a5.612,5.612,0,0,1,4.155-1.631,6.345,6.345,0,0,1,4.279,1.467c1.385,1.141,1.915,2.607,1.915,5.175Zm-23.511-6.642a5.09,5.09,0,0,0-3.952,1.631v-8.6h-3.911v22.695h3.3a.583.583,0,0,0,.571-.571v-.692a5.046,5.046,0,0,0,3.952,1.671,8.07,8.07,0,0,0,.041-16.136Zm-.652,12.428a3.988,3.988,0,0,1-3.3-1.671v-5.46a4.422,4.422,0,0,1,3.3-1.671,4.405,4.405,0,1,1,0,8.8Zm-10.593-12.428a6.221,6.221,0,0,1,1.793.2v3.626s-3.26-1.1-5.3,1.223v10.716h-3.912V454.992h3.3a.582.582,0,0,1,.57.571v.652A5.355,5.355,0,0,1,407.681,454.585Zm-40.622,14.343c-.2-.489-.407-1.018-.611-1.467-.326-.733-.652-1.426-.937-2.078l-.041-.041c-2.812-6.112-5.826-12.3-9-18.416l-.122-.245q-.5-.951-.977-1.915a11.727,11.727,0,0,0-1.467-2.241A6.581,6.581,0,0,0,348.725,440a6.838,6.838,0,0,0-5.215,2.445,13.972,13.972,0,0,0-1.467,2.241q-.477.963-.977,1.915l-.123.245c-3.137,6.111-6.193,12.3-9,18.416l-.041.081c-.285.653-.611,1.345-.937,2.078q-.305.673-.611,1.467a9.142,9.142,0,0,0-.489,4.4,8.659,8.659,0,0,0,5.3,6.764,8.363,8.363,0,0,0,3.3.652,9.2,9.2,0,0,0,1.06-.082,10.762,10.762,0,0,0,4.075-1.385A20.634,20.634,0,0,0,348.644,475a21.41,21.41,0,0,0,5.052,4.237,10.765,10.765,0,0,0,4.074,1.385,9.111,9.111,0,0,0,1.06.082,8.218,8.218,0,0,0,3.3-.652,8.644,8.644,0,0,0,5.3-6.764,7.72,7.72,0,0,0-.369-4.359Zm-18.375,2.119a20.092,20.092,0,0,1-4.115-7.578,6.571,6.571,0,0,1-.122-2.486,3.946,3.946,0,0,1,.652-1.712,4.327,4.327,0,0,1,3.586-1.793,4.173,4.173,0,0,1,3.586,1.793,3.964,3.964,0,0,1,.652,1.712,6.558,6.558,0,0,1-.122,2.486A20.747,20.747,0,0,1,348.684,471.046Zm16.256,1.915a6.055,6.055,0,0,1-3.707,4.768,6.17,6.17,0,0,1-3.1.407,8.024,8.024,0,0,1-3.1-1.059,19.038,19.038,0,0,1-4.645-3.953,22.984,22.984,0,0,0,4.93-9,10.194,10.194,0,0,0,.2-3.464,6.606,6.606,0,0,0-1.1-2.771,6.866,6.866,0,0,0-5.745-2.893,6.971,6.971,0,0,0-5.745,2.893,6.612,6.612,0,0,0-1.1,2.771,8.464,8.464,0,0,0,.2,3.464c.611,2.689,2.281,5.745,4.93,9.045a18.3,18.3,0,0,1-4.645,3.953,8,8,0,0,1-3.1,1.059,6.519,6.519,0,0,1-3.1-.407A6.055,6.055,0,0,1,332.427,473a6.74,6.74,0,0,1,.367-3.178c.122-.408.326-.815.53-1.3.285-.652.611-1.345.937-2.038l.041-.081c2.811-6.071,5.826-12.264,8.963-18.294l.122-.245c.326-.611.652-1.263.978-1.874a8.944,8.944,0,0,1,1.141-1.793,4.278,4.278,0,0,1,6.519,0,9.017,9.017,0,0,1,1.141,1.793c.326.611.652,1.263.978,1.874l.123.245q4.634,9.082,8.923,18.335v.041c.326.653.611,1.386.937,2.038.2.488.407.9.53,1.3a6.886,6.886,0,0,1,.284,3.137Z"
+                transform="translate(-329.776 -439.998)" fill="#8989a2" />
+            </svg>
+            <svg class="sign-up__company" xmlns="http://www.w3.org/2000/svg" width="54" height="32.361"
+              viewBox="0 0 54 32.361">
+              <path id="sky-4"
+                d="M23.486.724A.676.676,0,0,0,22.728,0h-2.67a1.636,1.636,0,0,0-1.814,1.824V24.693a.683.683,0,0,0,.764.726h2.664a1.636,1.636,0,0,0,1.814-1.826V.724ZM54,8.438c0-.429-.317-.641-.749-.641h-3.24a1.107,1.107,0,0,0-1.177.755L44.266,18.69,37.9,8.658A1.721,1.721,0,0,0,36.143,7.8h-3.85a2.025,2.025,0,0,0-1.7.722L23.809,15.8l6.079,8.866a1.329,1.329,0,0,0,1.176.748H34.69c.543,0,.859-.218.859-.674a1.193,1.193,0,0,0-.316-.715l-5.344-7.912,4.053-4.366,8.011,11.842-3.536,7.481a1.763,1.763,0,0,0-.216.647c0,.433.318.641.751.641h3.215a1.1,1.1,0,0,0,1.176-.752L53.788,9.086A1.635,1.635,0,0,0,54,8.438M6.523,13.893c-1.065-.24-1.4-.541-1.4-1.078,0-.418.331-.751,1.291-.751h7.773a1.632,1.632,0,0,0,1.819-1.813V8.558a.678.678,0,0,0-.723-.761h-9.1C2.126,7.8,0,10.149,0,13.14c0,2.664,1.636,4.286,4.91,5.014l5.224,1.169c1.062.235,1.392.54,1.392,1.084,0,.412-.329.745-1.286.745h-8.1A1.63,1.63,0,0,0,.316,22.965v1.69a.679.679,0,0,0,.719.764H9.924c4.8,0,6.731-2.35,6.731-5.133,0-2.876-1.657-4.5-4.908-5.223Z"
+                fill="#8989a2" />
+            </svg>
+          </div>
+        </div>
+        <form class="sign-up__form">
+          <h3>Sign Up</h3>
+          <input class="input" type="email" placeholder="Your primary email">
+          <input class="input" type="password" placeholder="Password">
+          <input class="input" type="password" placeholder="Re-type password">
+          <button class="button button-primary mb-6">Start your free trial</button>
+          <p class="mb-6">OR</p>
+          <a>
+            <img src="https://i.ibb.co/XCWph66/btn-google-signin-dark-normal-web-2x.png"
+              alt="btn-google-signin-dark-normal-web-2x">
+          </a>
+          <hr>
+          <p>Already have an account? <a href="#">Login</a></p>
+        </form>
+      </section>
+      <footer class="footer">
+        <div class="flex flex-columns">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="mb-6">
+            <g id="Logo" transform="translate(-1756.067 -378.462)">
+              <path id="Path_611" data-name="Path 611" d="M1756.072,478.465" transform="translate(-0.004 -72.574)"
+                fill="#0032d8" />
+              <path id="Path_612" data-name="Path 612" d="M1780.065,378.462v13.716l-12,6.857-12-6.858h0Z"
+                transform="translate(0 0)" fill="#00c8f0" />
+              <path id="Path_613" data-name="Path 613" d="M1768.067,435.321l12,6.857v13.714h0l-12-6.857-12-6.857V428.463Z"
+                transform="translate(0 -36.287)" fill="#1563ff" />
+              <path id="Path_614" data-name="Path 614" d="M1854.67,485.32v13.713l-12-6.856h0V478.463Z"
+                transform="translate(-62.604 -72.572)" fill="#1563ff" />
+              <path id="Path_615" data-name="Path 615" d="M1842.669,378.462v0h0v13.714h0l12,6.856v0h0l12,6.856V392.177Z"
+                transform="translate(-62.604)" fill="#1563ff" />
+              <path id="Path_616" data-name="Path 616" d="M1866.668,428.463v13.716l-12,6.857-12-6.858,12-6.858Z"
+                transform="translate(-62.604 -36.287)" fill="#00c8f0" />
+              <path id="Path_617" data-name="Path 617" d="M1854.67,485.32l-12,6.857h0V478.463Z"
+                transform="translate(-62.604 -72.572)" fill="#0b96f8" />
+            </g>
+          </svg>
+          <small class="mb-6">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+            tincidunt ut
+            laoreet dolore
+            magna aliquam erat volutpat ut wisi enim ad minim</small>
+          <div class="social-medias">
+            <svg id="facebook-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path id="Path_687" data-name="Path 687"
+                d="M15.117,16A.883.883,0,0,0,16,15.117V.883A.883.883,0,0,0,15.117,0H.883A.883.883,0,0,0,0,.883V15.117A.883.883,0,0,0,.883,16H15.117Z"
+                fill="#485a96" />
+              <path id="Path_688" data-name="Path 688"
+                d="M112.353,53.893V47.7h2.08l.311-2.415h-2.391V43.741c0-.7.194-1.176,1.2-1.176h1.279v-2.16a17.111,17.111,0,0,0-1.863-.1,2.91,2.91,0,0,0-3.106,3.192v1.781h-2.085V47.7h2.085v6.2h2.494Z"
+                transform="translate(-101.313 -37.893)" fill="#fff" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <g id="twitter-3" transform="translate(-126.176 -2.014)">
+                <circle id="Ellipse_19" data-name="Ellipse 19" cx="8" cy="8" r="8" transform="translate(126.176 2.014)"
+                  fill="#2daae1" />
+                <path id="Path_691" data-name="Path 691"
+                  d="M242.31,144.3a4.175,4.175,0,0,1-1.2.329,2.1,2.1,0,0,0,.92-1.157,4.179,4.179,0,0,1-1.328.508,2.092,2.092,0,0,0-3.618,1.431,2.116,2.116,0,0,0,.054.477,5.939,5.939,0,0,1-4.311-2.185,2.094,2.094,0,0,0,.647,2.792,2.082,2.082,0,0,1-.947-.261v.026a2.092,2.092,0,0,0,1.678,2.051,2.081,2.081,0,0,1-.551.073,2.123,2.123,0,0,1-.394-.037,2.094,2.094,0,0,0,1.954,1.452,4.211,4.211,0,0,1-3.1.866,5.948,5.948,0,0,0,9.157-5.011q0-.136-.006-.271A4.262,4.262,0,0,0,242.31,144.3Z"
+                  transform="translate(-103.036 -137.452)" fill="#fff" />
+              </g>
+            </svg>
+            <svg id="instagram-2016" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="15.999" height="16" viewBox="0 0 15.999 16">
+              <defs>
+                <radialGradient id="radial-gradient" cx="0.133" cy="1.005" r="1.305" gradientTransform="translate(0)"
+                  gradientUnits="objectBoundingBox">
+                  <stop offset="0.09" stop-color="#fa8f21" />
+                  <stop offset="0.78" stop-color="#d82d7e" />
+                </radialGradient>
+                <radialGradient id="radial-gradient-2" cx="0.606" cy="1.05" r="1.029" gradientTransform="translate(0)"
+                  gradientUnits="objectBoundingBox">
+                  <stop offset="0.64" stop-color="#8c3aaa" stop-opacity="0" />
+                  <stop offset="1" stop-color="#8c3aaa" />
+                </radialGradient>
+              </defs>
+              <path id="Path_692" data-name="Path 692"
+                d="M5.334,8A2.667,2.667,0,1,1,8,10.667,2.667,2.667,0,0,1,5.334,8M3.892,8A4.108,4.108,0,1,0,8,3.892,4.108,4.108,0,0,0,3.892,8m7.418-4.271a.96.96,0,1,0,.96-.96h0a.96.96,0,0,0-.96.96M4.768,14.512a4.422,4.422,0,0,1-1.486-.275,2.486,2.486,0,0,1-.92-.6,2.468,2.468,0,0,1-.6-.92,4.417,4.417,0,0,1-.275-1.486c-.039-.843-.047-1.1-.047-3.233s.008-2.389.047-3.233a4.451,4.451,0,0,1,.275-1.486,2.486,2.486,0,0,1,.6-.92,2.466,2.466,0,0,1,.92-.6,4.417,4.417,0,0,1,1.486-.275c.843-.039,1.1-.047,3.232-.047s2.389.008,3.233.047a4.451,4.451,0,0,1,1.486.275,2.478,2.478,0,0,1,.92.6,2.478,2.478,0,0,1,.6.92,4.417,4.417,0,0,1,.275,1.486c.039.844.047,1.1.047,3.233s-.008,2.389-.047,3.233a4.438,4.438,0,0,1-.275,1.486,2.649,2.649,0,0,1-1.519,1.518,4.417,4.417,0,0,1-1.486.275c-.843.039-1.1.047-3.233.047s-2.389-.008-3.232-.047M4.7.048A5.866,5.866,0,0,0,2.76.42a3.924,3.924,0,0,0-1.417.923A3.909,3.909,0,0,0,.42,2.76,5.868,5.868,0,0,0,.048,4.7C.009,5.555,0,5.827,0,8s.009,2.445.048,3.3A5.867,5.867,0,0,0,.42,13.24a3.911,3.911,0,0,0,.923,1.417,3.933,3.933,0,0,0,1.417.923,5.871,5.871,0,0,0,1.942.372C5.555,15.99,5.827,16,8,16s2.445-.009,3.3-.048a5.867,5.867,0,0,0,1.942-.372,4.09,4.09,0,0,0,2.34-2.34,5.851,5.851,0,0,0,.372-1.942C15.99,10.445,16,10.173,16,8s-.009-2.445-.048-3.3A5.866,5.866,0,0,0,15.58,2.76a3.934,3.934,0,0,0-.923-1.417A3.915,3.915,0,0,0,13.241.42,5.858,5.858,0,0,0,11.3.048C10.446.01,10.173,0,8,0S5.555.009,4.7.048"
+                fill="url(#radial-gradient)" />
+              <path id="Path_693" data-name="Path 693"
+                d="M5.334,8A2.667,2.667,0,1,1,8,10.667,2.667,2.667,0,0,1,5.334,8M3.892,8A4.108,4.108,0,1,0,8,3.892,4.108,4.108,0,0,0,3.892,8m7.418-4.271a.96.96,0,1,0,.96-.96h0a.96.96,0,0,0-.96.96M4.768,14.512a4.422,4.422,0,0,1-1.486-.275,2.486,2.486,0,0,1-.92-.6,2.468,2.468,0,0,1-.6-.92,4.417,4.417,0,0,1-.275-1.486c-.039-.843-.047-1.1-.047-3.233s.008-2.389.047-3.233a4.451,4.451,0,0,1,.275-1.486,2.486,2.486,0,0,1,.6-.92,2.466,2.466,0,0,1,.92-.6,4.417,4.417,0,0,1,1.486-.275c.843-.039,1.1-.047,3.232-.047s2.389.008,3.233.047a4.451,4.451,0,0,1,1.486.275,2.478,2.478,0,0,1,.92.6,2.478,2.478,0,0,1,.6.92,4.417,4.417,0,0,1,.275,1.486c.039.844.047,1.1.047,3.233s-.008,2.389-.047,3.233a4.438,4.438,0,0,1-.275,1.486,2.649,2.649,0,0,1-1.519,1.518,4.417,4.417,0,0,1-1.486.275c-.843.039-1.1.047-3.233.047s-2.389-.008-3.232-.047M4.7.048A5.866,5.866,0,0,0,2.76.42a3.924,3.924,0,0,0-1.417.923A3.909,3.909,0,0,0,.42,2.76,5.868,5.868,0,0,0,.048,4.7C.009,5.555,0,5.827,0,8s.009,2.445.048,3.3A5.867,5.867,0,0,0,.42,13.24a3.911,3.911,0,0,0,.923,1.417,3.933,3.933,0,0,0,1.417.923,5.871,5.871,0,0,0,1.942.372C5.555,15.99,5.827,16,8,16s2.445-.009,3.3-.048a5.867,5.867,0,0,0,1.942-.372,4.09,4.09,0,0,0,2.34-2.34,5.851,5.851,0,0,0,.372-1.942C15.99,10.445,16,10.173,16,8s-.009-2.445-.048-3.3A5.866,5.866,0,0,0,15.58,2.76a3.934,3.934,0,0,0-.923-1.417A3.915,3.915,0,0,0,13.241.42,5.858,5.858,0,0,0,11.3.048C10.446.01,10.173,0,8,0S5.555.009,4.7.048"
+                fill="url(#radial-gradient-2)" />
+            </svg>
+    
+          </div>
+        </div>
+        <div class="flex flex-columns">
+          <p>Product</p>
+          <small>Connections</small>
+          <small>Protocol</small>
+          <small>Personas</small>
+          <small>Integrations</small>
+          <small>Catalog</small>
+          <small>Pricing</small>
+          <small>Security</small>
+          <small>GDPR</small>
+        </div>
+        <div class="flex flex-columns">
+          <p>For Developers</p>
+          <small>Docs</small>
+          <small>API</small>
+          <small>Open Source</small>
+          <small>Engineering Team</small>
+        </div>
+        <div class="flex flex-columns">
+          <p>Company</p>
+          <small>Careers</small>
+          <small>Blog</small>
+          <small>Press</small>
+        </div>
+        <div class="flex flex-columns">
+          <p>Support</p>
+          <small>Help Center</small>
+          <small>Contact Us</small>
+          <small>Security Bulletins</small>
+          <small>Documentation</small>
+          <small>Partner Portal</small>
+        </div>
+        <div class="flex flex-columns newsletter">
+          <p>Newsletter</p>
+          <div class="flex items-center newsletter__form">
+            <input type="text" placeholder="Email">
+            <button class="flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28.01" height="28.01" viewBox="0 0 28.01 28.01">
+                <path id="Icon_ionic-ios-send" data-name="Icon ionic-ios-send"
+                  d="M23.686,4.547,4.748,12.8a.434.434,0,0,0,.015.789l5.123,2.894a.826.826,0,0,0,.944-.093l10.1-8.708c.067-.057.227-.165.289-.1s-.036.222-.093.289l-8.739,9.843a.823.823,0,0,0-.083.985l3.348,5.37a.436.436,0,0,0,.784-.01L24.268,5.12A.434.434,0,0,0,23.686,4.547Z"
+                  transform="translate(14.005 -6.368) rotate(45)" fill="#722ed1" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </footer>
+
+      <script>
+        window.addEventListener("scroll", (e) => {
+  const nav = document.querySelector(".nav");
+  if (window.pageYOffset > 0) {
+    nav.classList.add("scroll");
+  } else {
+    nav.classList.remove("scroll");
+  }
+});
+
+const hamburger = document.querySelector(".hamburger");
+const menu = document.querySelector(".nav ul");
+hamburger.addEventListener("click", () => {
+  menu.classList.toggle("active");
+});
+      </script>
+</body>
+</html>

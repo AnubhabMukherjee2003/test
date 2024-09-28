@@ -1,0 +1,19 @@
+{
+  "name": "test1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.13"
+  }
+}
